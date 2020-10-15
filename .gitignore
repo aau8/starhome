@@ -1,8 +1,7 @@
 _src/
-dist/
 node_modules/
 gulpfile.js
 package-lock.json
 package.json
-style.css
-main.js
+dist/css/style.css
+dist/js/main.js

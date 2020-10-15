@@ -686,32 +686,6 @@ body._lock {
     cursor: pointer;
   }
 
-  .navbar__menu-bg {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 201;
-    opacity: 0;
-    pointer-events: none;
-    -webkit-transition: .3s;
-    -o-transition: .3s;
-    transition: .3s;
-  }
-
-  .navbar__menu-bg._show {
-    opacity: 1;
-    pointer-events: all;
-    -webkit-transform: translate(-40%, 0);
-        -ms-transform: translate(-40%, 0);
-            transform: translate(-40%, 0);
-    -webkit-transform: translate(calc(0 + (40% - 0) * ((100vw - 320px) / (1600))), 0);
-        -ms-transform: translate(calc(0 + (40% - 0) * ((100vw - 320px) / (1600))), 0);
-            transform: translate(calc(0 + (40% - 0) * ((100vw - 320px) / (1600))), 0);
-  }
-
   .navbar__phone {
     margin: 0 0 0 auto;
   }
