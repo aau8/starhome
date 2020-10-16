@@ -796,7 +796,6 @@ body._lock {
     display: inline-block;
     width: 100%;
     padding: 12px 0 12px 16px;
-    font-weight: 400;
   }
 
   .navbar__menu nav ul li a:active {
