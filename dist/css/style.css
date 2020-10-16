@@ -378,6 +378,7 @@ body._lock {
   -o-transition: .3s;
   transition: .3s;
   cursor: pointer;
+  color: var(--maincolor);
 }
 
 .navbar__phone {
@@ -623,6 +624,10 @@ body._lock {
     display: -ms-flexbox;
     display: flex;
     padding: 0 18px;
+  }
+
+  .navbar__menu__phone-number a {
+    color: var(--maincolor);
   }
 
   .navbar__menu__social_lang {
