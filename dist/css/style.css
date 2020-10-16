@@ -184,6 +184,7 @@ body._lock {
   top: 0;
   left: 0;
   width: 100%;
+  z-index: 100;
 }
 
 .navbar._show {
@@ -889,12 +890,18 @@ body._lock {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
-    background-color: #ccc;
+    background-color: var(--maincolor);
     border-radius: 2px;
     color: #fff !important;
     font-size: 12px;
     margin: 16px auto 0 auto;
     padding: 0 !important;
+  }
+
+  .navbar__menu-callback:active {
+    -webkit-transform: scale(0.98);
+        -ms-transform: scale(0.98);
+            transform: scale(0.98);
   }
 
   .navbar__menu-btn {
