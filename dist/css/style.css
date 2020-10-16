@@ -56,10 +56,6 @@ a:active {
   outline: none;
 }
 
-a:visited {
-  color: inherit;
-}
-
 nav,
 footer,
 header,
@@ -410,11 +406,13 @@ body._lock {
 .navbar__phone-number a {
   font-size: 16px;
   font-weight: 600;
+  color: var(--maincolor);
 }
 
 .navbar__phone-callback {
   font-size: 12px;
   position: relative;
+  color: var(--maincolor);
 }
 
 .navbar__phone-callback:before {
@@ -624,10 +622,6 @@ body._lock {
     display: -ms-flexbox;
     display: flex;
     padding: 0 18px;
-  }
-
-  .navbar__menu__phone-number a {
-    color: var(--maincolor);
   }
 
   .navbar__menu__social_lang {
