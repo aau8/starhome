@@ -14,7 +14,7 @@ burger.addEventListener('click', function(e) {
 });
 closeMenu.addEventListener('click', function() {
   menuToggle();
-});
+}); 
 
 document.addEventListener('mouseup', function(e) {
   let target = e.target;
