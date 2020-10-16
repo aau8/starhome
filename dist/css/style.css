@@ -28,6 +28,7 @@
   --maincolor: #333333;
   --secondarycolor: #73808E;
   --accentcolor: #77B231;
+  --outlinecolor: #DDDFE0;
 }
 
 /*Обнуление*/
@@ -37,6 +38,7 @@
   padding: 0;
   border: 0;
   font-family: "Open sans", sans-serif;
+  line-height: 130%;
 }
 
 *,
@@ -162,7 +164,7 @@ body._lock {
   padding: 0 16px;
 }
 
-.btn-booking {
+.btn-main {
   width: 148px;
   height: 36px;
   background-color: var(--accentcolor);
@@ -246,7 +248,7 @@ body._lock {
   left: 0;
   width: 100%;
   height: 1px;
-  background-color: #DDDFE0;
+  background-color: var(--outlinecolor);
 }
 
 .navbar__address {
@@ -433,6 +435,212 @@ body._lock {
   display: none;
 }
 
+.header {
+  margin: 96px 0 0 0;
+}
+
+.header-title {
+  font-size: 40px;
+  font-weight: 900;
+  color: var(--maincolor);
+}
+
+.header-title span {
+  color: var(--accentcolor);
+}
+
+.header-description {
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--secondarycolor);
+  margin: 20px 0 0 0;
+}
+
+.header__form {
+  max-width: 520px;
+  width: 100%;
+  padding: 20px 30px;
+  background-color: #fff;
+  border-radius: 5px;
+  -webkit-filter: drop-shadow(0px 0px 10px rgba(36, 44, 74, 0.25));
+          filter: drop-shadow(0px 0px 10px rgba(36, 44, 74, 0.25));
+  margin: 60px 0 0 0;
+}
+
+.header__form__tab {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--secondarycolor);
+  margin: 0 24px 0 0;
+}
+
+.header__form__tab:last-child {
+  margin: 0;
+}
+
+.header__form__tab:hover {
+  color: var(--accentcolor);
+}
+
+.header__form__tab._active {
+  color: var(--accentcolor);
+  position: relative;
+}
+
+.header__form__tab._active:before {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: var(--accentcolor);
+}
+
+.header__form__tabs {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.header__booking {
+  margin: 20px 0 0 0;
+}
+
+.header__booking form {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.header-subtitle {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--maincolor);
+  text-align: center;
+}
+
+.header__inputs {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 20px 0 0 0;
+}
+
+.header__input {
+  max-width: 220px;
+  width: 100%;
+  position: relative;
+}
+
+.header__input input {
+  width: 100%;
+  height: 42px;
+  font-size: 16px;
+  font-weight: 400;
+  border: solid 1px var(--outlinecolor);
+  border-radius: 2px;
+  padding: 0 0 0 16px;
+}
+
+.header__input label {
+  position: absolute;
+  top: 50%;
+  right: 12px;
+  -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+
+.header-buttonAvailability {
+  width: 100%;
+  height: 42px;
+  font-size: 16px;
+  margin: 12px 0 0 0;
+}
+
+.header-visaSupport {
+  margin: 12px 0 0 0;
+  color: var(--maincolor);
+}
+
+.header__application {
+  margin: 20px 0 0 0;
+  display: none;
+}
+
+.header__application form {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.header__inputs {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.header__application__input {
+  margin: 0 0 12px 0;
+}
+
+.header__application__input:last-child {
+  margin: 0;
+}
+
+.header__input_numberOfGuests select {
+  max-width: 220px;
+  width: 100%;
+  height: 42px;
+  font-size: 16px;
+  font-weight: 400;
+  border: solid 1px var(--outlinecolor);
+  border-radius: 2px;
+  padding: 0 16px;
+}
+
+.header__input_purposeOfTravel textarea {
+  max-width: 460px;
+  min-width: 460px;
+  min-height: 84px;
+  width: 100%;
+  height: 84px;
+  font-size: 16px;
+  font-weight: 400;
+  border: solid 1px var(--outlinecolor);
+  border-radius: 2px;
+  padding: 8px 8px 16px 8px;
+}
+
 @media screen and (min-width: 769px) {
   .navbar-link:hover {
     color: var(--accentcolor);
@@ -584,7 +792,7 @@ body._lock {
     left: 0;
     width: 100%;
     height: 1px;
-    background-color: #DDDFE0;
+    background-color: var(--outlinecolor);
   }
 
   .navbar__menu__down {
@@ -603,8 +811,8 @@ body._lock {
   .navbar__menu__down hr {
     display: block;
     border: none;
-    color: #DDDFE0;
-    background-color: #DDDFE0;
+    color: var(--outlinecolor);
+    background-color: var(--outlinecolor);
     height: 1px;
   }
 
