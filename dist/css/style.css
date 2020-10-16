@@ -795,7 +795,8 @@ body._lock {
   .navbar__menu nav ul li a {
     display: inline-block;
     width: 100%;
-    padding: 8px 0 8px 18px;
+    padding: 8px 24px 8px 16px;
+    text-align: right;
   }
 
   .navbar__menu__up {
@@ -894,7 +895,7 @@ body._lock {
     border-radius: 2px;
     color: #fff !important;
     font-size: 12px;
-    margin: 16px auto 0 auto;
+    margin: 24px auto 0 auto;
     padding: 0 !important;
   }
 
