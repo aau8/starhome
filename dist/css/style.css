@@ -510,7 +510,7 @@ body._lock {
   margin: 20px 0 0 0;
 }
 
-.header__booking form {
+.header__booking .form {
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -556,6 +556,7 @@ body._lock {
   height: 42px;
   font-size: 16px;
   font-weight: 400;
+  background-color: #fff;
   border: solid 1px var(--outlinecolor);
   border-radius: 2px;
   padding: 0 16px;
@@ -615,6 +616,25 @@ body._lock {
 
 .header__application__input:last-child {
   margin: 0;
+}
+
+.header__input_checkin input {
+  position: relative;
+}
+
+.header__input_checkin input::-webkit-calendar-picker-indicator,
+.header__input_checkout input::-webkit-calendar-picker-indicator {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 10px 20px 10px 180px;
+  background-color: none;
+  cursor: pointer;
+  outline: none;
+  -moz-user-select: -moz-none;
+  -o-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
 }
 
 .header__input_numberOfGuests input {
