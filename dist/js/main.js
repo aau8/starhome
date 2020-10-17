@@ -17,7 +17,7 @@ closeMenu.addEventListener('click', function() {
   menuToggle();
 }); 
 
-document.addEventListener('mouseup', function(e) {
+document.addEventListener('touchstart', function(e) {
   let target = e.target;
   let itsMenu = target == menu || menu.contains(target);
   let itsBurger = target == burger;
