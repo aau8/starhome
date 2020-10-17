@@ -27,6 +27,9 @@ document.addEventListener('touchstart', function(e) {
     menuToggle();
   }
 });
+// document.addEventListener('click', function() {
+//   conditionMenuToggle();
+// });
 
 // СКРЫТИЕ И ПОЯВЛЕНИЕ ФОРМЫ В HEADER ПРИ НАЖАТИИ НА ТАБЫ
 let tabOrdinary = document.querySelector('.header__form__tab-ordinary');
@@ -80,11 +83,11 @@ for(i=0; i < checkOut.length; i++) {
 
 let btnOpenModuleBooking = document.querySelector('.header-buttonAvailability');
 let uidModule = 'a7012a46-0c22-4353-92b9-f6169736cc29';
-let checkInModule = document.querySelector('#checkInDateModule').value;
-let checkOutModule = document.querySelector('#checkOutDateModule').value;
 let langModule = 'ru';
 
 btnOpenModuleBooking.addEventListener('click', function() {
+  let checkInModule = document.querySelector('#checkInDateModule').value;
+  let checkOutModule = document.querySelector('#checkOutDateModule').value;
   
   let yearCheckInModule = checkInModule.substring(0, 4);
   let monthCheckInModule = checkInModule.substring(5, 7);
@@ -97,6 +100,8 @@ btnOpenModuleBooking.addEventListener('click', function() {
   let dateCheckOutModule = dayCheckOutModule + '-' + monthCheckOutModule + '-' + yearCheckOutModule;
 
   window.open('https://reservationsteps.ru/rooms/index/' + uidModule + '?&dfrom=' + dateCheckInModule + '&dto=' + dateCheckOutModule + '&lang=' + langModule, 'reservation steps', 'width=840, height=840, scrollbars=yes, toolbar=yes, location=1, resizable=1');
+  console.log(checkInModule);
+  console.log(checkOutModule);
 });
 
 
@@ -148,4 +153,14 @@ btnOpenModuleBooking.addEventListener('click', function() {
 // console.log(checkOutValue);
 
 
-
+// СЛАЙДЕР НА ГЛАВНОЙ СТРАНИЦЕ (В HEADER)
+$(document).ready(function(){
+  $('.header__slider__list').slick({
+    dots: true,
+    infinite: true,
+    fade: true,
+    prevArrow: '.header__slider__arrow-prev',
+    nextArrow: '.header__slider__arrow-next',
+    dotsClass: 'header__slick-dots',
+  });
+})
