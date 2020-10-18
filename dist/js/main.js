@@ -34,19 +34,27 @@ document.addEventListener('touchstart', function(e) {
 // СКРЫТИЕ И ПОЯВЛЕНИЕ ФОРМЫ В HEADER ПРИ НАЖАТИИ НА ТАБЫ
 let tabOrdinary = document.querySelector('.header__form__tab-ordinary');
 let tabGroup = document.querySelector('.header__form__tab-group');
+let lineActive = document.querySelector('.header__form-line_active');
+let formTabs = document.querySelector('.header__form__tabs');
 
 tabOrdinary.addEventListener('click', function() {
   this.classList.add('_active');
   tabGroup.classList.remove('_active');
+  formTabs.classList.add('ordinary_active');
+  formTabs.classList.remove('group_active');
   document.querySelector('.header__booking').style.display = 'block';
   document.querySelector('.header__application').style.display = 'none';
 });
 tabGroup.addEventListener('click', function() {
   this.classList.add('_active');
   tabOrdinary.classList.remove('_active');
+  formTabs.classList.add('group_active');
+  formTabs.classList.remove('ordinary_active');
   document.querySelector('.header__application').style.display = 'block';
   document.querySelector('.header__booking').style.display = 'none';
 });
+
+// ИЗМЕНЕНИЕ ПОЛОЖЕНИЯ ЛИНИИ ПОД ТАБАМИ (В ЗАВИСИМОСТИ ОТ ВЫБРАННОГО ТАБА)
 
 // АВТОМАТИЧЕСКОЕ ПРОСТАВЛЕНИЕ СЕГОДНЯШНЕЙ И ЗАВТРАШНЕЙ ДАТЫ В ПОЛЯХ "ЗАЕЗД" И "ВЫЕЗД"
 let checkIn = document.querySelectorAll('.checkInDate');
