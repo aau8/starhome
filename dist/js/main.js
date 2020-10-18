@@ -49,7 +49,7 @@ tabGroup.addEventListener('click', function() {
   this.classList.add('_active');
   tabOrdinary.classList.remove('_active');
   formTabs.classList.add('group_active');
-  formTabs.classList.remove('ordinary_active');
+  formTabs.classList.remove('ordinary_active'); 
   document.querySelector('.header__application').style.display = 'block';
   document.querySelector('.header__booking').style.display = 'none';
 });
