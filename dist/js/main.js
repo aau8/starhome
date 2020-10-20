@@ -211,12 +211,14 @@ document.addEventListener('DOMContentLoaded', function(){
   let closeCardRoom = document.querySelectorAll('.rooms__info-close');
   let cardRoom = document.querySelectorAll('.rooms__info__card');
   let bgRoom = document.querySelector('.rooms__info-bg');
+  let roomsBlock = document.querySelector('.rooms__info');
 
   for (i = 0; i < closeCardRoom.length; i++) {
     closeCardRoom[i].addEventListener('click', function() {
       for (i = 0; i < cardRoom.length; i++) {
         cardRoom[i].classList.remove('_active');
       }
+      roomsBlock.style.display = 'none';
       body.classList.remove('_lock');
       bgRoom.classList.remove('_active');
     });
