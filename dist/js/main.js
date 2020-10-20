@@ -3,11 +3,12 @@ document.addEventListener('DOMContentLoaded', function(){
   let burger = document.querySelector('.navbar__burger');
   let closeMenu = document.querySelector('.navbar__menu-close');
   let menu = document.querySelector('.navbar__menu');
+  let body = document.querySelector('body');
   let i;
 
   function menuToggle() {
     menu.classList.toggle('_active');
-    document.querySelector('body').classList.toggle('_lock');
+    body.classList.toggle('_lock');
   }
 
   burger.addEventListener('click', function(e) {
@@ -163,7 +164,17 @@ document.addEventListener('DOMContentLoaded', function(){
     fade: true,
     prevArrow: '.header__slider__arrow-prev',
     nextArrow: '.header__slider__arrow-next',
-    dotsClass: 'header__slick-dots',
+    dotsClass: 'header__slick-dots'
+  });
+
+  // СЛАЙДЕР В КАРТОЧКЕ КОМНАТЫ
+  $('.rooms__info__slider__list').slick({
+    dots: true,
+    infinite: true,
+    fade: true,
+    prevArrow: '.rooms__info__slider__arrow-prev',
+    nextArrow: '.rooms__info__slider__arrow-next',
+    dotsClass: 'rooms__info__slick-dots'
   });
 
   // АКТИВАЦИЯ ТАБОВ В РАЗДЕЛЕ КОМНАТЫ И ОТКРЫТИЕ НУЖНОЙ КАРТОЧКИ ПРИ КЛИКЕ НА ТАБЫ
@@ -196,5 +207,52 @@ document.addEventListener('DOMContentLoaded', function(){
     
   // }
 
+  // ЗАКРЫТИЕ КАРТОЧКИ С ИНФОРМАЦИЕЙ О КОМНАТЕ
+  let closeCardRoom = document.querySelectorAll('.rooms__info-close');
+  let cardRoom = document.querySelectorAll('.rooms__info__card');
+  let bgRoom = document.querySelector('.rooms__info-bg');
 
+  for (i = 0; i < closeCardRoom.length; i++) {
+    closeCardRoom[i].addEventListener('click', function() {
+      for (i = 0; i < cardRoom.length; i++) {
+        cardRoom[i].classList.remove('_active');
+      }
+      body.classList.remove('_lock');
+      bgRoom.classList.remove('_active');
+    });
+  }
+  bgRoom.addEventListener('click', function() {
+    this.classList.remove('_active');
+    body.classList.remove('_lock');
+    for (i = 0; i < cardRoom.length; i++) {
+      cardRoom[i].remove('_active');
+      
+    }
+  });
+  // for(i=0;i<cardRoom.length;i++) {
+  //   document.addEventListener('click', function(e) {
+  //     let target = e.target;
+  //     let itsCardRoom = target == cardRoom[i];
+  // // let cardRoomIsActive = cardRoom[i].classList.contains('_active');
+
+  //     if (!itsCardRoom ) {
+  //       cardRoom[i].classList.remove('_active');
+  //     }
+  //   });
+  // }
+  let accordionHeaders = document.querySelectorAll('.accordion-header');
+
+  accordionHeaders.forEach(accordionHeader => {
+    accordionHeader.addEventListener('click', event => {
+      accordionHeader.classList.toggle('_active');
+
+      let accordionBody = accordionHeader.nextElementSibling;
+      console.log(accordionBody);
+      if (accordionHeader.classList.contains('_active')) {
+        accordionBody.style.maxHeight = accordionBody.scrollHeight + 'px';
+      } else {
+        accordionBody.style.maxHeight = 0;
+      }
+    });
+  });
 });
