@@ -252,10 +252,6 @@ document.addEventListener('DOMContentLoaded', function(){
       let target = e.target;
       let itsCardRoom = target == cardRoom[i];
   // let cardRoomIsActive = cardRoom[i].classList.contains('_active');
-
-      if (!itsCardRoom ) {
-        cardRoom[i].classList.remove('_active');
-      }
     });
   }
 
@@ -289,7 +285,7 @@ document.addEventListener('DOMContentLoaded', function(){
       accordionHeader.classList.toggle('_active');
 
       let accordionBody = accordionHeader.nextElementSibling;
-      console.log(accordionBody);
+      // console.log(accordionBody);
       if (accordionHeader.classList.contains('_active')) {
         accordionBody.style.maxHeight = accordionBody.scrollHeight + 'px';
       } else {
@@ -298,13 +294,14 @@ document.addEventListener('DOMContentLoaded', function(){
     });
   });
 
-  // АНИМАЦИЯ ПРЕЛОАДЕРА
-  // setTimeout(() => {
-  // }, 2000);
-  function preloaderOff() {
-    const preloader = document.querySelector('.preloader');
-  
-    preloader.classList.add('_hide');
-    body.classList.remove('_lock');
-  }
+  // РАЗВЕРНУТЬ СПИСОК УСЛУГ
+  const servicesMore = document.querySelector('.services__more');
+  const servicesCards = document.querySelector('.services__cards');
+  const servicesMoreText = document.querySelector('.services__more-text');
+
+  servicesMore.addEventListener('click', function() {
+    servicesCards.classList.toggle('_show');
+    this.classList.toggle('_active');
+    // servicesMoreText.textContent = 'Свернуть';
+  });
 });

@@ -895,6 +895,46 @@ section {
   width: 100%;
   position: relative;
   margin: 0 20px 0 0;
+  border-radius: 2px;
+}
+
+.header__input input {
+  -webkit-transition: .3s;
+  -o-transition: .3s;
+  transition: .3s;
+}
+
+.header__input input:focus + label span,
+.header__input input:valid + label span {
+  -webkit-transform: translate(-12px, -200%);
+      -ms-transform: translate(-12px, -200%);
+          transform: translate(-12px, -200%);
+  font-size: 12px;
+  padding: 0 5px;
+  background-color: #fff;
+  color: #7b7b7b;
+}
+
+.header__input label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.header__input label span {
+  position: absolute;
+  top: 50%;
+  left: 18px;
+  -webkit-transform: translate(0, -50%);
+      -ms-transform: translate(0, -50%);
+          transform: translate(0, -50%);
+  -webkit-transition: .3s;
+  -o-transition: .3s;
+  transition: .3s;
+  color: var(--secondarycolor);
 }
 
 .header__input:last-child {
@@ -1177,7 +1217,6 @@ section {
 
 .rooms {
   margin: 50px 0 0 0;
-  padding: 50px 0;
   border-top: 1px solid var(--outlinecolor);
 }
 
@@ -1826,7 +1865,6 @@ section {
 .services__cards {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
   justify-items: center;
 }
 
@@ -1836,6 +1874,24 @@ section {
   border: 1px solid var(--outlinecolor);
   border-radius: 4px;
   margin: 32px 0 0 0;
+}
+
+.services__more {
+  display: none;
+}
+
+.services__more._active .services__more-icon {
+  -webkit-transform: rotate(180deg);
+      -ms-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+
+.services__more._active .services__more-text:before {
+  content: 'Свернуть';
+}
+
+.services__more-text:before {
+  content: 'Показать все';
 }
 
 .services__card__image {
@@ -1864,7 +1920,7 @@ section {
 }
 
 .services__card-text {
-  font-size: 12px;
+  font-size: 13px;
   margin: 0 0 8px 0;
 }
 
@@ -2536,20 +2592,6 @@ section {
   position: relative;
 }
 
-.awards__list-shadow_left {
-  left: 0;
-  background: -webkit-gradient(linear, left top, right top, from(#FFFFFF), to(rgba(255, 255, 255, 0)));
-  background: -o-linear-gradient(left, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%);
-  background: linear-gradient(90deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%);
-}
-
-.awards__list-shadow_right {
-  right: 0;
-  background: -webkit-gradient(linear, right top, left top, from(#FFFFFF), to(rgba(255, 255, 255, 0)));
-  background: -o-linear-gradient(right, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%);
-  background: linear-gradient(270deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%);
-}
-
 .awards__list {
   width: 100%;
   display: -webkit-box;
@@ -3105,11 +3147,11 @@ section {
     height: 100vh;
     background-color: #fff;
     z-index: 100;
-    -webkit-transition: -webkit-transform .3s;
-    transition: -webkit-transform .3s;
-    -o-transition: transform .3s;
-    transition: transform .3s;
-    transition: transform .3s, -webkit-transform .3s;
+    -webkit-transition: -webkit-transform .3s ease-out;
+    transition: -webkit-transform .3s ease-out;
+    -o-transition: transform .3s ease-out;
+    transition: transform .3s ease-out;
+    transition: transform .3s ease-out, -webkit-transform .3s ease-out;
     -webkit-transform: translate(100%, 0);
         -ms-transform: translate(100%, 0);
             transform: translate(100%, 0);
@@ -3519,6 +3561,12 @@ section {
   }
 }
 
+@media screen and (max-width: 1080px) {
+  .services__cards {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
 @media screen and (max-width: 1024px) {
   .rooms__content {
     -webkit-box-orient: vertical;
@@ -3619,6 +3667,26 @@ section {
   }
 }
 
+@media screen and (max-width: 820px) {
+  .services__cards {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .services__card {
+    margin: 16px 0 0 0;
+  }
+}
+
+@media screen and (max-width: 810px) {
+  .around__card {
+    margin: 0 0 16px 0;
+  }
+
+  .around__card:last-child {
+    margin: 0;
+  }
+}
+
 @media screen and (max-width: 800px) {
   .rooms__info__cards {
     padding: 0;
@@ -3639,11 +3707,19 @@ section {
 }
 
 @media screen and (max-width: 760px) {
+  section {
+    padding: 32px 0;
+  }
+
   .rooms__card {
     max-width: 700px;
     width: 100%;
-    height: calc(200px + (450 - 200) * ((100vw - 320px) / (760)));
+    height: auto;
     overflow: initial;
+  }
+
+  .rooms__card__img {
+    height: calc(200px + (450 - 200) * ((100vw - 320px) / (760)));
   }
 
   .rooms__card__content {
@@ -3670,13 +3746,6 @@ section {
 }
 
 @media screen and (max-width: 752px) {
-  .awards__list-shadow {
-    position: absolute;
-    top: 0;
-    width: 20px;
-    height: 100%;
-  }
-
   .awards__list {
     -webkit-box-pack: initial;
         -ms-flex-pack: initial;
@@ -3706,6 +3775,51 @@ section {
   .header__text {
     max-width: 530px;
     padding: 0 16px;
+  }
+}
+
+@media screen and (max-width: 560px) {
+  .services__cards {
+    grid-template-columns: 1fr;
+  }
+
+  .services__cards._show .services__card {
+    display: initial;
+  }
+
+  .services__card {
+    display: none;
+  }
+
+  .services__card:nth-child(1),
+  .services__card:nth-child(2),
+  .services__card:nth-child(3) {
+    display: initial;
+  }
+
+  .services__more {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    text-align: center;
+    padding: 12px 0;
+  }
+
+  .services__more p {
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--maincolor);
+  }
+
+  .services__notes {
+    margin: 12px 0 0 0;
   }
 }
 
@@ -3897,6 +4011,14 @@ section {
 
 }
 
+ @media screen and (max-width: 1080px){
+
+@supports (-webkit-appearance:none){
+
+}
+
+}
+
  @media screen and (max-width: 1024px){
 
 @supports (-webkit-appearance:none){
@@ -3906,6 +4028,22 @@ section {
 }
 
  @media screen and (max-width: 980px){
+
+@supports (-webkit-appearance:none){
+
+}
+
+}
+
+ @media screen and (max-width: 820px){
+
+@supports (-webkit-appearance:none){
+
+}
+
+}
+
+ @media screen and (max-width: 810px){
 
 @supports (-webkit-appearance:none){
 
@@ -3954,6 +4092,14 @@ section {
 }
 
  @media screen and (max-width: 600px){
+
+@supports (-webkit-appearance:none){
+
+}
+
+}
+
+ @media screen and (max-width: 560px){
 
 @supports (-webkit-appearance:none){
 
