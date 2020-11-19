@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function(){
   let burger = document.querySelector('.navbar__burger');
   let closeMenu = document.querySelector('.navbar__menu-close');
   let menu = document.querySelector('.navbar__menu');
-  // let body = document.querySelector('body');
+  let body = document.querySelector('body');
   let i;
 
   function menuToggle() {
@@ -303,5 +303,13 @@ document.addEventListener('DOMContentLoaded', function(){
     servicesCards.classList.toggle('_show');
     this.classList.toggle('_active');
     // servicesMoreText.textContent = 'Свернуть';
+  });
+  // плавный скролл до якорей
+  $("body").on('click', '[href*="#"]', function(e){ // при клике на элементы body содержащие в себе "href=#"  =>
+    var fixedOffset = 100; 
+    $('html,body').stop().animate({ scrollTop: $(this.hash).offset().top - fixedOffset }, 1000); // пользователя переведет на указанный в href якорь со скоростью 1000ms и с отступом 100px сверху
+    menu.classList.remove('_active');
+    body.classList.remove('_lock');
+    e.preventDefault();
   });
 });
