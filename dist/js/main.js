@@ -34,7 +34,6 @@ document.addEventListener('DOMContentLoaded', function(){
 // ИЗМЕНЕНИЕ ПОЛОЖЕНИЯ ЛИНИИ ПОД ТАБАМИ (В ЗАВИСИМОСТИ ОТ ВЫБРАННОГО ТАБА)
   let tabOrdinary = document.querySelector('.header__form__tab-ordinary');
   let tabGroup = document.querySelector('.header__form__tab-group');
-  let lineActive = document.querySelector('.header__form-line_active');
   let formTabs = document.querySelector('.header__form__tabs');
 
   tabOrdinary.addEventListener('click', function(e) {
@@ -191,8 +190,10 @@ document.addEventListener('DOMContentLoaded', function(){
 
   });
   // АКТИВАЦИЯ ТАБОВ В РАЗДЕЛЕ КОМНАТЫ И ОТКРЫТИЕ НУЖНОЙ КАРТОЧКИ ПРИ КЛИКЕ НА ТАБЫ
-  let roomTabs = document.querySelectorAll('.rooms__tab');
-  let roomCards = document.querySelectorAll('.rooms__card');
+  let roomTabs = document.querySelectorAll('.tab__room');
+  let roomCards = document.querySelectorAll('.card__room');
+  let comfortTabs = document.querySelectorAll('.tab__comfort');
+  let comfortCards = document.querySelectorAll('.card__comfort');
 
   for(i=0;i<roomTabs.length;i++) {
     roomTabs[i].addEventListener('click', function() {
@@ -203,9 +204,24 @@ document.addEventListener('DOMContentLoaded', function(){
         roomCards[i].classList.remove('_active');
       }
       let roomCard = document.querySelector('.room-' + this.dataset.card);
+
       roomCard.classList.add('_active');
       this.classList.add('_active');
-      // console.log(roomCard);
+    });
+  }
+
+  for(i=0;i<comfortTabs.length;i++) {
+    comfortTabs[i].addEventListener('click', function() {
+      for(i=0;i<comfortTabs.length;i++) {
+        comfortTabs[i].classList.remove('_active');
+      }
+      for(i=0;i<comfortCards.length;i++) {
+        comfortCards[i].classList.remove('_active');
+      }
+      let roomCard = document.querySelector('.room__comfort-' + this.dataset.card);
+
+      roomCard.classList.add('_active');
+      this.classList.add('_active');
     });
   }
 
@@ -220,6 +236,56 @@ document.addEventListener('DOMContentLoaded', function(){
   //   })
     
   // }
+
+  // ОТКРЫТИЕ КОНТЕНТА С КОМНАТАМИ ИЛИ УДОБСТВАМИ ПРИ КЛИКЕ ПО ТАБАМ В АККОРДЕОНЕ В РАЗДЕЛЕ КОМНАТЫ И УДОБСТВ
+  let tabRooms = document.querySelector('.header__form__tab-rooms');
+  let tabComfort = document.querySelector('.header__form__tab-comfort');
+  let formTabsRooms = document.querySelector('.rooms__form__tabs');
+  // let dataSpace = this.dataset.space;
+  
+  tabRooms.addEventListener('click', function(e) {
+    this.classList.add('_active');
+    tabComfort.classList.remove('_active');
+    formTabsRooms.classList.add('rooms_active');
+    formTabsRooms.classList.remove('comfort_active');
+    document.querySelector('.rooms__tabs__rooms').classList.add('_active');
+    document.querySelector('.rooms__tabs__rooms').classList.add('_showTabs');
+    document.querySelector('.rooms__tabs__comfort').classList.remove('_active');
+    document.querySelector('.rooms__tabs__comfort').classList.remove('_showTabs');
+    document.querySelector('.rooms__cards__rooms').classList.add('_active');
+    document.querySelector('.rooms__cards__comfort').classList.remove('_active');
+   
+    if (document.querySelector('.rooms__tabs__rooms').classList.contains('_active')) {
+      setTimeout(function tabActiveOnloadWindow() {
+        let roomsTab = document.querySelectorAll('.rooms__tab');
+        for (let i = 0; i < roomsTab.length; i++) {
+          roomsTab[0].classList.add('_active');
+        }
+      }, 200);
+    }
+  });
+  tabComfort.addEventListener('click', function(e) {
+    this.classList.add('_active');
+    tabRooms.classList.remove('_active');
+    formTabsRooms.classList.add('comfort_active');
+    formTabsRooms.classList.remove('rooms_active');
+    document.querySelector('.rooms__tabs__comfort').classList.add('_active');
+    document.querySelector('.rooms__tabs__comfort').classList.add('_showTabs');
+    document.querySelector('.rooms__tabs__rooms').classList.remove('_active');
+    document.querySelector('.rooms__tabs__rooms').classList.remove('_showTabs');
+    document.querySelector('.rooms__cards__comfort').classList.add('_active');
+    document.querySelector('.rooms__cards__rooms').classList.remove('_active');
+    
+    if (document.querySelector('.rooms__tabs__comfort').classList.contains('_active')) {
+      setTimeout(function tabActiveOnloadWindow() {
+        let roomsTab = document.querySelectorAll('.rooms__tab');
+        for (let i = 0; i < roomsTab.length; i++) {
+          roomsTab[0].classList.add('_active');
+        }
+      }, 200);
+    }
+  });
+
 
   // ЗАКРЫТИЕ КАРТОЧКИ С ИНФОРМАЦИЕЙ О КОМНАТЕ
   let closeCardRoom = document.querySelectorAll('.rooms__info-close');
@@ -242,9 +308,9 @@ document.addEventListener('DOMContentLoaded', function(){
     // this.classList.remove('_active');
     for (i = 0; i < cardRoom.length; i++) {
       // closeCardRoom.classList.contains('_active').remove('_active');
-      closeCardRoom[i].classList.remove('_active');
+      cardRoom[i].classList.remove('_active');
       body.classList.remove('_lock');
-      
+      roomsBlock.style.display = 'none';
     }
   });
   for(i=0;i<cardRoom.length;i++) {
@@ -255,7 +321,7 @@ document.addEventListener('DOMContentLoaded', function(){
     });
   }
 
-  // При клике по виду комнаты будет открываться соответствующая карточка
+  // ПРИ КЛИКЕ ПО ВИДУ КОМНАТЫ БУДЕТ ОТКРЫВАТЬСЯ СООТВЕТСТВУЮЩАЯ КАРТОЧКА
   let roomsCardButtons = document.querySelectorAll('.rooms__card-button');
 
   // roomsCardButtons.forEach(roomsCardButton => {
@@ -269,29 +335,38 @@ document.addEventListener('DOMContentLoaded', function(){
   // console.log(roomsInfoCard);
   for (i = 0; i < roomsCardButtons.length; i++) {
     roomsCardButtons[i].addEventListener('click', function() {
+      let roomsInfo = document.querySelector('.rooms__info');
       let roomsInfoCard = document.querySelector('.rooms__info__card-' + this.dataset.info);
       // let roomsInfoCard = document.querySelector('.rooms__info__card');
       // console.log(this.dataset.info);
+      roomsInfo.style.display = 'block';
       roomsInfoCard.classList.add('_active');
-      console.log(roomsInfoCard);
+      body.classList.add('_lock');
+      // console.log(roomsInfoCard);
     });
   }
-
+  
   // Аккордеоны
   let accordionHeaders = document.querySelectorAll('.accordion-header');
-
+  
+  // for (i = 0; i < accordionHeaders.length; i++) {
   accordionHeaders.forEach(accordionHeader => {
+    let accordionBody = accordionHeader.nextElementSibling;
+
     accordionHeader.addEventListener('click', event => {
       accordionHeader.classList.toggle('_active');
-
-      let accordionBody = accordionHeader.nextElementSibling;
-      // console.log(accordionBody);
+      
       if (accordionHeader.classList.contains('_active')) {
         accordionBody.style.maxHeight = accordionBody.scrollHeight + 'px';
       } else {
         accordionBody.style.maxHeight = 0;
       }
     });
+    // document.addEventListener('DOMContentLoaded', () => {
+    //   if (accordionHeader.classList.contains('_active')) {
+    //     accordionBody.style.maxHeight = accordionBody.scrollHeight + 'px';
+    //   } else {}
+    // });
   });
 
   // РАЗВЕРНУТЬ СПИСОК УСЛУГ
