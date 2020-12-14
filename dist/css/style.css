@@ -157,6 +157,7 @@ body._lock {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  position: relative;
 }
 
 .container {
@@ -510,11 +511,87 @@ section {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin: 0 0 0 24px;
+  margin: 0 0 0 16px;
 }
 
 .navbar__work_time p {
   margin: 0 0 0 4px;
+}
+
+.navbar__booking_rating {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 0 0 0 16px;
+}
+
+.navbar__booking_rating:hover .navbar__booking_rating_tooltip {
+  opacity: 1;
+  pointer-events: all;
+  -webkit-animation: navbarBookinRatingTooltipShow .15s linear;
+          animation: navbarBookinRatingTooltipShow .15s linear;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes navbarBookinRatingTooltipShow {
+  from {
+    -webkit-transform: translate(-62%, 70%);
+            transform: translate(-62%, 70%);
+  }
+
+  to {
+    -webkit-transform: translate(-62%, 100%);
+            transform: translate(-62%, 100%);
+  }
+}
+
+@keyframes navbarBookinRatingTooltipShow {
+  from {
+    -webkit-transform: translate(-62%, 70%);
+            transform: translate(-62%, 70%);
+  }
+
+  to {
+    -webkit-transform: translate(-62%, 100%);
+            transform: translate(-62%, 100%);
+  }
+}
+
+.navbar__booking_rating a {
+  margin: 0 0 -2px 4px;
+}
+
+.navbar__booking_rating p {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--maincolor);
+}
+
+.navbar__booking_rating_tooltip {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  -webkit-transform: translate(-62%, 100%);
+      -ms-transform: translate(-62%, 100%);
+          transform: translate(-62%, 100%);
+  background-color: rgba(51, 51, 51, 0.8);
+  border-radius: 4px;
+  padding: 12px;
+  opacity: 0;
+  pointer-events: none;
+  -webkit-transition: .3s;
+  -o-transition: .3s;
+  transition: .3s;
+  z-index: 1000;
+}
+
+.navbar__booking_rating_tooltip p {
+  color: #fff;
+  font-size: 14px;
 }
 
 .navbar__social_lang {
@@ -961,8 +1038,15 @@ section {
 
 .header-visaSupport {
   font-size: 14px;
-  color: var(--maincolor);
+  color: var(--secondarycolor);
   margin: 12px 0 0 0;
+  -webkit-transition: .2s;
+  -o-transition: .2s;
+  transition: .2s;
+}
+
+.header-visaSupport:hover {
+  color: var(--maincolor);
 }
 
 .header__application {
@@ -1560,12 +1644,12 @@ section {
 }
 
 .rooms__info {
-  display: none;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
+  pointer-events: none;
   z-index: 1000;
   overflow-y: auto;
 }
@@ -1580,17 +1664,12 @@ section {
   background-color: rgba(0, 0, 0, 0.2);
 }
 
-.rooms__info-bg._active {
-  display: block;
-}
-
 .rooms__info__cards {
   padding: 40px 0 100px 0;
 }
 
 .rooms__info__card {
   display: none;
-  opacity: 1;
   max-width: 800px;
   width: 100%;
   background-color: #fff;
@@ -1599,10 +1678,19 @@ section {
   padding: 0 0 24px 0;
   position: relative;
   z-index: 1;
+  -webkit-transform: translate(0, 100%);
+      -ms-transform: translate(0, 100%);
+          transform: translate(0, 100%);
+  -webkit-transition: .3s;
+  -o-transition: .3s;
+  transition: .3s;
 }
 
 .rooms__info__card._active {
   display: block;
+  -webkit-transform: translate(0, 0);
+      -ms-transform: translate(0, 0);
+          transform: translate(0, 0);
 }
 
 .rooms__info__card._active ~ .rooms__info-bg {
@@ -1624,7 +1712,7 @@ section {
   -webkit-box-align: end;
       -ms-flex-align: end;
           align-items: flex-end;
-  z-index: 1;
+  z-index: 11;
   cursor: pointer;
 }
 
@@ -1634,6 +1722,10 @@ section {
 
 .rooms__info__slider {
   height: 400px;
+  position: relative;
+}
+
+.rooms__info__slider__list {
   position: relative;
 }
 
@@ -1650,91 +1742,60 @@ section {
      object-position: center;
 }
 
-.rooms__info__slider__arrows {
+.rooms__info__slider__list button {
+  border-radius: 0;
+  z-index: 10;
+}
+
+.rooms__info__slider__list button.slick-prev {
+  display: none;
   position: absolute;
   top: 50%;
   left: 0;
-  -webkit-transform: translate(0, -50%);
-      -ms-transform: translate(0, -50%);
-          transform: translate(0, -50%);
-  width: 100%;
-  height: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  pointer-events: none;
-}
-
-.rooms__info__slider__arrow {
+  -webkit-transform: translate(0, -50%) scale(-1, -1);
+      -ms-transform: translate(0, -50%) scale(-1, -1);
+          transform: translate(0, -50%) scale(-1, -1);
   width: 50px;
   height: 100%;
-  border-radius: 0;
   background: -webkit-gradient(linear, right top, left top, from(rgba(0, 0, 0, 0.3)), to(rgba(255, 255, 255, 0)));
   background: -o-linear-gradient(right, rgba(0, 0, 0, 0.3) 0%, rgba(255, 255, 255, 0) 100%);
   background: linear-gradient(270deg, rgba(0, 0, 0, 0.3) 0%, rgba(255, 255, 255, 0) 100%);
-  pointer-events: all;
+  font-size: 0;
 }
 
-.rooms__info__slider__arrow svg {
-  -webkit-transition: .3s;
-  -o-transition: .3s;
-  transition: .3s;
+.rooms__info__slider__list button.slick-next {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  -webkit-transform: translate(0, -50%);
+      -ms-transform: translate(0, -50%);
+          transform: translate(0, -50%);
+  width: 50px;
+  height: 100%;
+  background: -webkit-gradient(linear, right top, left top, from(rgba(0, 0, 0, 0.3)), to(rgba(255, 255, 255, 0)));
+  background: -o-linear-gradient(right, rgba(0, 0, 0, 0.3) 0%, rgba(255, 255, 255, 0) 100%);
+  background: linear-gradient(270deg, rgba(0, 0, 0, 0.3) 0%, rgba(255, 255, 255, 0) 100%);
+  font-size: 0;
 }
 
-.rooms__info__slider__arrow:hover {
-  background-color: initial !important;
+.rooms__info__slider__list button.slick-arrow:hover:before {
+  -webkit-transform: translate(-30%, -50%);
+      -ms-transform: translate(-30%, -50%);
+          transform: translate(-30%, -50%);
 }
 
-.rooms__info__slider__arrow:hover svg {
-  -webkit-transform: translate(5px, 0);
-      -ms-transform: translate(5px, 0);
-          transform: translate(5px, 0);
-}
-
-@-webkit-keyframes arrowHover {
-  0% {
-    -webkit-transform: translate(0);
-            transform: translate(0);
-  }
-
-  50% {
-    -webkit-transform: translate(-5px, 0);
-            transform: translate(-5px, 0);
-  }
-
-  100% {
-    -webkit-transform: translate(0);
-            transform: translate(0);
-  }
-}
-
-@keyframes arrowHover {
-  0% {
-    -webkit-transform: translate(0);
-            transform: translate(0);
-  }
-
-  50% {
-    -webkit-transform: translate(-5px, 0);
-            transform: translate(-5px, 0);
-  }
-
-  100% {
-    -webkit-transform: translate(0);
-            transform: translate(0);
-  }
-}
-
-.rooms__info__slider__arrow-prev {
-  -webkit-transform: rotate(180deg);
-      -ms-transform: rotate(180deg);
-          transform: rotate(180deg);
+.rooms__info__slider__list button.slick-arrow:before {
+  content: url(../img/arrow_slider.svg);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  font-size: 12px;
+  -webkit-transition: .2s;
+  -o-transition: .2s;
+  transition: .2s;
 }
 
 .rooms__info__slick-dots {
@@ -1854,45 +1915,6 @@ section {
   -webkit-transition: .3s;
   -o-transition: .3s;
   transition: .3s;
-}
-
-.rooms__info__acc__table {
-  width: 100%;
-  padding: 12px 0;
-}
-
-.rooms__info__acc__table tr {
-  height: 30px;
-  -webkit-transition: .3s;
-  -o-transition: .3s;
-  transition: .3s;
-  border: 0px;
-  border-spacing: 0;
-}
-
-.rooms__info__acc__table tr:nth-child(odd) {
-  background-color: rgba(119, 178, 49, 0.05);
-  border: 0;
-}
-
-.rooms__info__acc__table tr:hover {
-  background-color: rgba(119, 178, 49, 0.15);
-}
-
-.rooms__info__acc__table tr td {
-  border: 0;
-  border-collapse: collapse;
-  border-spacing: 0;
-}
-
-.rooms__info__acc__table tr td:first-child {
-  padding: 0 0 0 24px;
-}
-
-.rooms__info__acc__table tr td:last-child {
-  text-align: right;
-  color: var(--secondarycolor);
-  padding: 0 24px 0 0;
 }
 
 .rooms__info__acc__rows {
@@ -2276,6 +2298,10 @@ section {
   transition: .3s;
 }
 
+.around__link-btn:hover {
+  background-color: #afafaf;
+}
+
 .around__link-btn svg {
   margin: 0 0 -5px 0;
 }
@@ -2552,6 +2578,15 @@ section {
   width: 100%;
   height: 16px;
   margin: 0 0 0 4px;
+  -webkit-transition: .2s;
+  -o-transition: .2s;
+  transition: .2s;
+}
+
+.reviews__booking_logo:hover {
+  -webkit-transform: scale(1.05);
+      -ms-transform: scale(1.05);
+          transform: scale(1.05);
 }
 
 .reviews__booking_logo svg {
@@ -2581,7 +2616,6 @@ section {
 .reviews__rating-text {
   font-size: 14px;
   color: var(--maincolor) !important;
-  text-decoration: underline;
   margin: 0 0 0 2px;
 }
 
@@ -2992,9 +3026,14 @@ section {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 
 .contacts__route {
@@ -3031,25 +3070,8 @@ section {
   -webkit-transition: .2s;
   -o-transition: .2s;
   transition: .2s;
-  background: -webkit-gradient(linear, right top, left top, from(rgba(51, 51, 51, 0.8)), to(rgba(51, 51, 51, 0)));
-  background: -o-linear-gradient(right, rgba(51, 51, 51, 0.8) 0%, rgba(51, 51, 51, 0) 100%);
-  background: linear-gradient(270deg, rgba(51, 51, 51, 0.8) 0%, rgba(51, 51, 51, 0) 100%);
+  background: rgba(51, 51, 51, 0.2);
   opacity: 0;
-}
-
-.contacts__route__link:after {
-  content: 'Перейти';
-  position: absolute;
-  top: 50%;
-  right: 5px;
-  -webkit-transform: translate(110%, -50%);
-      -ms-transform: translate(110%, -50%);
-          transform: translate(110%, -50%);
-  font-size: 14px;
-  color: rgba(255, 255, 255, 0.95);
-  -webkit-transition: .2s;
-  -o-transition: .2s;
-  transition: .2s;
 }
 
 .contacts__route__link:hover:before {
@@ -3164,6 +3186,103 @@ section {
           align-items: flex-end;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
+}
+
+.callback {
+  opacity: 0;
+  pointer-events: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10000;
+}
+
+.callback._show {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.callback._show .callback-bg {
+  opacity: 1;
+}
+
+.callback._show .callback__modal {
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.callback-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(51, 51, 51, 0.5);
+  opacity: 0;
+  -webkit-transition: .3s;
+  -o-transition: .3s;
+  transition: .3s;
+}
+
+.callback__modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, 100vh);
+      -ms-transform: translate(-50%, 100vh);
+          transform: translate(-50%, 100vh);
+  max-width: 370px;
+  width: 100%;
+  background-color: #fff;
+  border-radius: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 20px;
+  -webkit-box-shadow: 0px 8px 20px 3px rgba(51, 51, 51, 0.25);
+          box-shadow: 0px 8px 20px 3px rgba(51, 51, 51, 0.25);
+  -webkit-transition: 3s;
+  -o-transition: 3s;
+  transition: 3s;
+}
+
+.callback-title {
+  font-size: 18px;
+  font-weight: 500;
+  margin: 0 0 32px 0;
+}
+
+.callback-input {
+  width: 100%;
+  height: 42px;
+  background-color: #fff;
+  border: 1px solid var(--outlinecolor);
+  border-radius: 2px;
+  font-size: 16px;
+  margin: 0 0 12px 0;
+  padding: 0 8px;
+}
+
+.callback-btn {
+  width: 100%;
+  height: 40px;
+  margin: 12px 0 0 0;
+}
+
+.callback__close {
+  position: absolute;
+  top: 16px;
+  right: 20px;
 }
 
 @media screen and (min-width: 769px) {
@@ -4191,6 +4310,19 @@ section {
 @media screen and (max-width: 450px) {
   .navbar__phone-number {
     display: none;
+  }
+
+  .callback._show .callback__modal {
+    -webkit-transform: translate(-50%, 0);
+        -ms-transform: translate(-50%, 0);
+            transform: translate(-50%, 0);
+  }
+
+  .callback__modal {
+    top: auto;
+    bottom: 0;
+    max-width: none;
+    border-radius: 0;
   }
 }
 

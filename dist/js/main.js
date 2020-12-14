@@ -171,8 +171,6 @@ document.addEventListener('DOMContentLoaded', function(){
     dots: true,
     infinite: true,
     fade: true,
-    prevArrow: '.rooms__info__slider__arrow-prev',
-    nextArrow: '.rooms__info__slider__arrow-next',
     dotsClass: 'rooms__info__slick-dots'
   });
 
@@ -186,8 +184,7 @@ document.addEventListener('DOMContentLoaded', function(){
     centerMode: true,
     variableWidth: true,
     prevArrow: '.reviews__slider__arrow-prev',
-    nextArrow: '.reviews__slider__arrow-next',
-
+    nextArrow: '.reviews__slider__arrow-next'
   });
   // АКТИВАЦИЯ ТАБОВ В РАЗДЕЛЕ КОМНАТЫ И ОТКРЫТИЕ НУЖНОЙ КАРТОЧКИ ПРИ КЛИКЕ НА ТАБЫ
   let roomTabs = document.querySelectorAll('.tab__room');
@@ -298,7 +295,8 @@ document.addEventListener('DOMContentLoaded', function(){
       for (i = 0; i < cardRoom.length; i++) {
         cardRoom[i].classList.remove('_active');
       }
-      roomsBlock.style.display = 'none';
+      // roomsBlock.style.display = 'none';
+      roomsBlock.style.pointerEvents = 'none';
       body.classList.remove('_lock');
       bgRoom.classList.remove('_active');
     });
@@ -310,7 +308,8 @@ document.addEventListener('DOMContentLoaded', function(){
       // closeCardRoom.classList.contains('_active').remove('_active');
       cardRoom[i].classList.remove('_active');
       body.classList.remove('_lock');
-      roomsBlock.style.display = 'none';
+      // roomsBlock.style.display = 'none';
+      roomsBlock.style.pointerEvents = 'none';
     }
   });
   for(i=0;i<cardRoom.length;i++) {
@@ -339,9 +338,11 @@ document.addEventListener('DOMContentLoaded', function(){
       let roomsInfoCard = document.querySelector('.rooms__info__card-' + this.dataset.info);
       // let roomsInfoCard = document.querySelector('.rooms__info__card');
       // console.log(this.dataset.info);
-      roomsInfo.style.display = 'block';
+      // roomsInfo.style.display = 'block';
+      roomsInfo.style.pointerEvents = 'all';
       roomsInfoCard.classList.add('_active');
       body.classList.add('_lock');
+      $('.rooms__info__slider__list').slick('reinit');
       // console.log(roomsInfoCard);
     });
   }
@@ -386,5 +387,29 @@ document.addEventListener('DOMContentLoaded', function(){
     menu.classList.remove('_active');
     body.classList.remove('_lock');
     e.preventDefault();
+  });
+
+  // МОДАЛЬНОЕ ОКНО "ЗАКАЗАТЬ ЗВОНОК"
+  let callbackCloseIcon = document.querySelector('.callback__close');
+  let callbackBg = document.querySelector('.callback-bg');
+  let callbackClose = [callbackCloseIcon, callbackBg];
+  let callback = document.querySelector('.callback');
+  let navbarCallback = document.querySelector('.navbar__phone-callback');
+  let menuCallback = document.querySelector('.navbar__menu-callback');
+  let callbackOpen = [navbarCallback, menuCallback];
+
+  // navbarCallback.addEventListener('click', function() {
+  //   callback.classList.add('_show');
+  // }); 
+  callbackOpen.forEach((e) => {
+    e.addEventListener('click', function() {
+      callback.classList.add('_show');
+      menu.classList.remove('_active');
+    });
+  });
+  callbackClose.forEach((e) => {
+    e.addEventListener('click', function() {
+      callback.classList.remove('_show');
+    });
   });
 });
