@@ -289,6 +289,7 @@ document.addEventListener('DOMContentLoaded', function(){
   let cardRoom = document.querySelectorAll('.rooms__info__card');
   let bgRoom = document.querySelector('.rooms__info-bg');
   let roomsBlock = document.querySelector('.rooms__info');
+  let roomsInfo = document.querySelector('.rooms__info');
 
   for (i = 0; i < closeCardRoom.length; i++) {
     closeCardRoom[i].addEventListener('click', function() {
@@ -299,6 +300,7 @@ document.addEventListener('DOMContentLoaded', function(){
       roomsBlock.style.pointerEvents = 'none';
       body.classList.remove('_lock');
       bgRoom.classList.remove('_active');
+      roomsInfo.classList.remove('_overflow_auto');
     });
   }
   bgRoom.addEventListener('click', function() {
@@ -310,6 +312,7 @@ document.addEventListener('DOMContentLoaded', function(){
       body.classList.remove('_lock');
       // roomsBlock.style.display = 'none';
       roomsBlock.style.pointerEvents = 'none';
+      roomsInfo.classList.remove('_overflow_auto');
     }
   });
   for(i=0;i<cardRoom.length;i++) {
@@ -334,7 +337,6 @@ document.addEventListener('DOMContentLoaded', function(){
   // console.log(roomsInfoCard);
   for (i = 0; i < roomsCardButtons.length; i++) {
     roomsCardButtons[i].addEventListener('click', function() {
-      let roomsInfo = document.querySelector('.rooms__info');
       let roomsInfoCard = document.querySelector('.rooms__info__card-' + this.dataset.info);
       // let roomsInfoCard = document.querySelector('.rooms__info__card');
       // console.log(this.dataset.info);
@@ -342,7 +344,10 @@ document.addEventListener('DOMContentLoaded', function(){
       roomsInfo.style.pointerEvents = 'all';
       roomsInfoCard.classList.add('_active');
       body.classList.add('_lock');
-      $('.rooms__info__slider__list').slick('reinit');
+      roomsInfo.classList.add('_overflow_auto');
+      // roomsInfo.class
+      // $('.rooms__info__slider__list').slick('reinit');
+      $('.rooms__info__card-' + this.dataset.info > '.rooms__info__slider__list').slick('reinit');
       // console.log(roomsInfoCard);
     });
   }
@@ -363,6 +368,11 @@ document.addEventListener('DOMContentLoaded', function(){
         accordionBody.style.maxHeight = 0;
       }
     });
+    if (accordionHeader.classList.contains('_active')) {
+      accordionBody.style.maxHeight = accordionBody.scrollHeight + 'px';
+    } else {
+      accordionBody.style.maxHeight = 0;
+    }
     // document.addEventListener('DOMContentLoaded', () => {
     //   if (accordionHeader.classList.contains('_active')) {
     //     accordionBody.style.maxHeight = accordionBody.scrollHeight + 'px';
