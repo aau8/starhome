@@ -4179,6 +4179,12 @@ section:target h2 {
   .rooms__info__cards {
     padding: 0;
   }
+
+  .rooms__info__card {
+    -webkit-transition: .5s;
+    -o-transition: .5s;
+    transition: .5s;
+  }
 }
 
 @media screen and (max-width: 770px) {
