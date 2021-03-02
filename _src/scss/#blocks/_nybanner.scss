@@ -1,0 +1,133 @@
+.nybanner {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  & .container {
+    width: 100%;
+  }
+}
+.nybanner__card {
+  position: relative;
+}
+.nybanner__body {
+  width: 100%;
+  height: 265px;
+  background: url(../img/banner/banner_new_year_1216px.png) no-repeat;
+  background-position: center;
+  background-size: cover;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0px 8px 20px 3px rgba(51, 51, 51, 0.45); 
+  position: relative;
+  transition: .2s;
+  cursor: pointer;
+}
+@media screen and (max-width: 1020px) {
+  .nybanner__body {
+    background: url(../img/banner/banner_new_year_1020px.png) no-repeat;
+    background-position: center;
+  }
+}
+@media screen and (max-width: 660px) {
+  .nybanner__body {
+    background: url(../img/banner/banner_new_year_660px.png) no-repeat;
+    background-position: center;
+    background-size: contain;
+    border-radius: 0;
+    box-shadow: none; 
+  }
+}
+.nybanner__body:hover {
+  transform: scale(1.005);
+  box-shadow: 0px 8px 30px 0px rgba(51, 51, 51, 0.45); 
+}
+.nybanner__body:active {
+  transform: scale(0.995);
+  box-shadow: 0px 8px 20px 0px rgba(51, 51, 51, 0.3); 
+}
+.nybanner__card:before {
+  content: url(../img/banner/click_banner_right.svg);
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translate(100%,-100%);
+}
+.nybanner__card:after {
+  content: url(../img/banner/click_banner_left.svg);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  transform: translate(-100%,100%);
+}
+@media screen and (max-width: 1300px) {
+  .nybanner__card:before,
+  .nybanner__card:after {
+    display: none;  
+  }
+}
+.nybanner__video {
+  visibility: hidden;
+  opacity: 0;
+  position: fixed;
+  top: 0;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  background: rgba(51, 51, 51, 0.4);
+  transform: translate(-50%,0);
+  overflow-y: auto;
+  transition: .2s;
+  z-index: 1000000;
+}
+.nybanner__video._show {
+  visibility: visible;
+  opacity: 1;
+}
+.nybanner__video__body{
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%,100vh);
+  padding: 32px 0;
+  transition: .2s;
+}
+@media screen and (max-width: 690px) {
+    .nybanner__video__body {
+        width: 100%;
+    }
+    .nybanner__video__body video {
+        width: 100%;
+    }
+  }
+.nybanner__video._show .nybanner__video__body {
+  transform: translate(-50%,0);
+}
+.nybanner-close {
+  position: absolute;
+  top: 40px;
+  right: 15px;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+.nybanner-close:before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%) rotate(45deg);
+  width: 20px;
+  height: 2px;
+  background: #fff;
+}
+.nybanner-close:after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%) rotate(-45deg);
+  width: 20px;
+  height: 2px;
+  background: #fff;
+}

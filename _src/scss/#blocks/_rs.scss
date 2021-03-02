@@ -1,0 +1,171 @@
+
+.rs {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(21,21,21,.8);
+  overflow: hidden;
+  z-index: 100;
+  opacity: 0;
+  visibility: hidden;
+  transition: .2s;
+  pointer-events: none;
+}
+
+.rs._show {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: all;
+  & .rs-card {
+    transform: translate(0,0); 
+  }
+}
+
+.rs-card {
+  max-width: 1200px;
+  width: 100%;
+  height: 100%;
+  background: #FFFFFF;
+  margin: 0 auto;
+  transform: translate(0,-100%);
+  transition: .2s;
+}
+
+.rs-card__body {
+  height: 100%;
+}
+
+.rs-header {
+  max-width: 1200px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 24px;
+  position: relative;
+  margin: 0 auto;
+}
+
+.rs-header:before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: rgba(21,21,21,.2)
+}
+
+.rs-title {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.rs-close {
+  display: flex;
+  align-items: center;
+  height: 32px;
+  background: none;
+}
+
+.rs-close-text {
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 500;
+  color: #212121;
+  margin: 0 6px 0 0;
+  @media screen and (max-width: 500px) {
+    display: none;
+  }
+}
+
+.rs-close-icon {
+  width: 32px;
+  height: 32px;
+}
+
+.rs-iframe {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.rs-iframe-body {
+  width: 100%;
+  height: 100%;
+  flex-grow: 1;
+}
+
+.rs-iframe-body iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: #FFFFFF;
+  z-index: 10;
+}
+
+.rs-onload {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 1;
+  visibility: visible;
+  transition: .2s;
+  pointer-events: none;
+  user-select: none;
+}
+
+.rs-onload-text {
+  color: rgba(21,21,21,.8);
+  margin: 0 6px 0 0;
+}
+
+.rs-onload-icon {
+  width: 12px;
+  height: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: .5s linear 0s infinite running rsOnloadAnimation;
+}
+
+.rs-onload-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+@keyframes rsOnloadAnimation {
+  from {
+    transform: rotate(0);
+  } to {
+    transform: rotate(360deg);
+  }
+}
+
+.rs-onload-done,
+.rs-onload-error {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.rs-onload-done .rs-onload-icon,
+.rs-onload-error .rs-onload-icon {
+  animation: none;
+}
+
+.rs-onload._hide {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.rs-onload._show {
+  opacity: 1;
+  visibility: visible;
+}

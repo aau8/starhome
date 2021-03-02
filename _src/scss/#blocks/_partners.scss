@@ -1,0 +1,23 @@
+.partners__body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.partners__content {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  @media screen and (max-width: 980px) {
+    max-width: 600px;
+  }
+}
+.partners__img {
+  @media screen and (max-width: 980px) {
+    padding: 20px;
+  }
+  @media screen and (max-width: 530px) {
+    padding: 20px 5px;
+  }
+}
