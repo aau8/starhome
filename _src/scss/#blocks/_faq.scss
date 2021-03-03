@@ -42,11 +42,13 @@
 .faq__acc-title {
   font-size: 18px;
   font-weight: 500;
+  padding: 0 12px 0 0;
 }
 .faq__acc-icon {
   width: 16px;
   height: 16px;
   position: relative;
+  padding: 0 0 0 16px;
   &:before,
   &:after {
     content: '';

@@ -465,4 +465,31 @@ rsClose.addEventListener('click', (e) => {
   //   e.preventDefault();
   // });
  
+  // ПОЯВЛЕНИЕ СТРЕЛКИ НАВЕРХ ПОСЛЕ СКРОЛЛА НА ВЫСОТУ ЭКРАНА
+  let windowHeight = document.querySelector('html').clientHeight;
+  
+  window.addEventListener('scroll', function() {
+
+    if (pageYOffset >= windowHeight ) {
+      document.querySelector('.arrowUp').classList.add('_show');
+    }
+    if (pageYOffset <= windowHeight ) {
+      document.querySelector('.arrowUp').classList.remove('_show');
+    }
+  });
+
+  // ФИКСИРОВАНИЕ NAVBAR ПРИ СКРОЛЛЕ НА ВЫСОТУ ЭКРАНА
+  window.addEventListener('scroll', function() {
+
+    let navbar = document.querySelector('.navbar');
+
+    if (pageYOffset >= windowHeight ) {
+      navbar.classList.add('_fixed');
+      body.style.paddingTop = navbar.clientHeight + 'px';
+    }
+    if (pageYOffset <= windowHeight ) {
+      navbar.classList.remove('_fixed');
+      body.style.paddingTop = 0;
+    }
+  });
 });

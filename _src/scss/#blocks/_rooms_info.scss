@@ -32,8 +32,6 @@
   }
 }
 .rooms__info__card {
-  // display: none;
-
   visibility: hidden;
   opacity: 0;
   max-width: 800px;
@@ -53,29 +51,15 @@
     transition: .5s;
   }
   &._active {
-    // display: block;
-
-    // transition-delay: visibility 0s, opacity .2s;
     visibility: visible;
     opacity: 1;
-    // pointer-events: all;
-    // animation: roomsInfoCardShow .25s ease-in-out;
-    // animation-fill-mode: forwards;
-
-    // @keyframes roomsInfoCardShow {
-    //   from {
-    //     transform: translate(0,100vh);
-    //   } to {
-    //     transform: translate(0,0);
-    //   }
-    // }
     transform: translate(-50%,0);
   & ~ .rooms__info-bg {
       display: block;
-      // z-index: -1;
     }
   }
 }
+
 .rooms__info-close {
   position: absolute;
   top: 0;

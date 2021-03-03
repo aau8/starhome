@@ -31,13 +31,12 @@
 .advantages__icon {
   width: 70px;
   height: 70px;
-  border-radius: 10px;
-  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
-  transition: .2s;
-}
-.advantages__icon:hover {
-  transform: scale(1.05);
-  box-shadow: 0px 4px 18px rgba(0, 0, 0, 0.11);
+  & img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+  }
 }
 .advantages__icon svg path {
   transition: .2s;
@@ -47,8 +46,8 @@
 }
 .advantages-title {
   font-size: 15px;
-  font-weight: 400;
-  color: #73808E;
+  font-weight: 500;
+  color: rgba(33,33,33,.8);
   text-align: center;
   margin: 22px 0 0 0;
 }

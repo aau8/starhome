@@ -1,8 +1,12 @@
 .about-title {
   margin: 0 0 32px 0;
+  & span {
+    color: $accent;
+  }
 }
 .about-text {
   max-width: 880px;
   text-align: center;
+  line-height: 1.5;
   margin: auto;
 }

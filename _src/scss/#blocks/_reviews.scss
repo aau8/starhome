@@ -91,9 +91,11 @@
   margin: 0 24px;
   transition: .3s;
   &:hover {
-    transform: scale(1.05);
-    filter: drop-shadow(0px 0px 10px rgba(36, 44, 74, 0.1));
-    z-index: 100;
+    @media screen and (min-width: 1120px) {
+      transform: scale(1.05);
+      filter: drop-shadow(0px 0px 10px rgba(36, 44, 74, 0.1));
+      z-index: 100;
+    }
   }
 }
 .reviews__content {

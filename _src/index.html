@@ -13,11 +13,17 @@
   <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
   <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 </head>
-<body onload="preloaderOff()">
-  <div class="wrapper">
+<body onload="preloaderOff()" id="topWindow">
+  <div class="wrapper" id="wrapper">
+    <div class="arrowUp">
+      <a href="#topWindow" class="arrowUp-btn">
+          <svg width="16" height="10" viewBox="0 0 16 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M2 8L8 2L14 8" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+      </a>
+    </div>
     <div class="preloader" style="display: none;">
       <div class="preloader-layer1"></div>
-      <!-- <div class="preloader-layer2"></div> -->
       <div class="preloader__icon">
         <svg width="280" height="280" viewBox="0 0 280 280" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path id="preloader_star" d="M136.701 4.81435C138.289 2.49606 141.711 2.49606 143.299 4.81435L188.57 70.8693C189.09 71.6282 189.856 72.1846 190.738 72.4448L267.55 95.0873C270.245 95.882 271.303 99.1359 269.589 101.363L220.756 164.83C220.195 165.559 219.903 166.46 219.928 167.379L222.129 247.428C222.207 250.238 219.439 252.249 216.791 251.307L141.34 224.477C140.473 224.168 139.527 224.168 138.66 224.477L63.2092 251.307C60.5612 252.249 57.7933 250.238 57.8705 247.428L60.0721 167.379C60.0974 166.46 59.8049 165.559 59.2439 164.83L10.4112 101.363C8.69736 99.1359 9.7546 95.882 12.4504 95.0873L89.2617 72.4448C90.1442 72.1846 90.91 71.6282 91.4302 70.8693L136.701 4.81435Z" fill="#313131"/>
@@ -96,28 +102,20 @@
                     </svg>                  
                   </a>
                 </div>
-                <div class="navbar__lang">
-                  <select name="lang">
-                    <option value="ru"><span>
-                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M16 6.25288H0V3.03448C0 2.88214 0.123531 2.75861 0.275874 2.75861H15.7241C15.8765 2.75861 16 2.88214 16 3.03448L16 6.25288Z" fill="#F5F5F5"/>
-                        <path d="M15.7241 13.2414H0.275874C0.123531 13.2414 0 13.1178 0 12.9655V9.74713H16V12.9655C16 13.1179 15.8764 13.2414 15.7241 13.2414Z" fill="#FF4B55"/>
-                        <path d="M16 6.25281H0V9.74686H16V6.25281Z" fill="#41479B"/>
-                      </svg>                    
-                    </span>Русский</option>
-                    <option value="en"><div>
-                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M15.7241 13.2413H0.275874C0.123531 13.2413 0 13.1178 0 12.9655V3.03448C0 2.88214 0.123531 2.75861 0.275874 2.75861H15.7241C15.8764 2.75861 16 2.88214 16 3.03448V12.9655C15.9999 13.1178 15.8764 13.2413 15.7241 13.2413Z" fill="#41479B"/>
-                        <path d="M15.9999 3.03448C15.9999 2.88214 15.8764 2.75861 15.7241 2.75861H14.4898L9.37924 6.10694V2.75861H6.62063V6.10694L1.51006 2.75861H0.275874C0.123531 2.75861 0 2.88214 0 3.03448V3.74795L4.38464 6.62065H0V9.37927H4.38464L0 12.252V12.9655C0 13.1178 0.123531 13.2413 0.275874 13.2413H1.51009L6.62069 9.89302V13.2413H9.37931V9.89302L14.4899 13.2413H15.7241C15.8765 13.2413 16 13.1178 16 12.9655V12.252L11.6154 9.3793H15.9999V6.62069H11.6153L15.9999 3.74795V3.03448Z" fill="#F5F5F5"/>
-                        <path d="M15.9999 7.1724H8.82756V2.75861H7.17238V7.1724H0V8.82755H7.17238V13.2413H8.82756V8.82755H15.9999V7.1724Z" fill="#FF4B55"/>
-                        <path d="M5.59247 9.37927L0.00817871 13.0042C0.0277099 13.1374 0.137553 13.2414 0.276209 13.2414H0.656176L6.60584 9.3793H5.59247V9.37927Z" fill="#FF4B55"/>
-                        <path d="M10.8246 9.37927H9.81122L15.7522 13.2356C15.8907 13.2209 16 13.1078 16 12.9654V12.7386L10.8246 9.37927Z" fill="#FF4B55"/>
-                        <path d="M0 3.33902L5.05557 6.62069H6.06894L0.160718 2.78552C0.0663435 2.82937 0 2.92358 0 3.03449V3.33902Z" fill="#FF4B55"/>
-                        <path d="M10.3926 6.62071L15.9903 2.98707C15.9671 2.85826 15.8596 2.75867 15.7241 2.75867H15.3288L9.37927 6.62071H10.3926Z" fill="#FF4B55"/>
-                      </svg>
-                    </div>Английский</option>
-                  </select>
-                </div>
+                <a href="#" class="navbar__lang">
+                  <span class="navbar__lang-icon">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M15.7241 13.2413H0.275874C0.123531 13.2413 0 13.1178 0 12.9655V3.03448C0 2.88214 0.123531 2.75861 0.275874 2.75861H15.7241C15.8764 2.75861 16 2.88214 16 3.03448V12.9655C15.9999 13.1178 15.8764 13.2413 15.7241 13.2413Z" fill="#41479B"/>
+                      <path d="M15.9999 3.03448C15.9999 2.88214 15.8764 2.75861 15.7241 2.75861H14.4898L9.37924 6.10694V2.75861H6.62063V6.10694L1.51006 2.75861H0.275874C0.123531 2.75861 0 2.88214 0 3.03448V3.74795L4.38464 6.62065H0V9.37927H4.38464L0 12.252V12.9655C0 13.1178 0.123531 13.2413 0.275874 13.2413H1.51009L6.62069 9.89302V13.2413H9.37931V9.89302L14.4899 13.2413H15.7241C15.8765 13.2413 16 13.1178 16 12.9655V12.252L11.6154 9.3793H15.9999V6.62069H11.6153L15.9999 3.74795V3.03448Z" fill="#F5F5F5"/>
+                      <path d="M15.9999 7.1724H8.82756V2.75861H7.17238V7.1724H0V8.82755H7.17238V13.2413H8.82756V8.82755H15.9999V7.1724Z" fill="#FF4B55"/>
+                      <path d="M5.59247 9.37927L0.00817871 13.0042C0.0277099 13.1374 0.137553 13.2414 0.276209 13.2414H0.656176L6.60584 9.3793H5.59247V9.37927Z" fill="#FF4B55"/>
+                      <path d="M10.8246 9.37927H9.81122L15.7522 13.2356C15.8907 13.2209 16 13.1078 16 12.9654V12.7386L10.8246 9.37927Z" fill="#FF4B55"/>
+                      <path d="M0 3.33902L5.05557 6.62069H6.06894L0.160718 2.78552C0.0663435 2.82937 0 2.92358 0 3.03449V3.33902Z" fill="#FF4B55"/>
+                      <path d="M10.3926 6.62071L15.9903 2.98707C15.9671 2.85826 15.8596 2.75867 15.7241 2.75867H15.3288L9.37927 6.62071H10.3926Z" fill="#FF4B55"/>
+                    </svg>
+                  </span>
+                  <span class="navbar__lang-text">EN</span>
+                </a>
               </div>
             </div>
             <div class="navbar__down">
@@ -216,28 +214,20 @@
                         </svg>                  
                       </a>
                     </div>
-                    <div class="navbar__lang">
-                      <select name="lang">
-                        <option value="ru"><span>
-                          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M16 6.25288H0V3.03448C0 2.88214 0.123531 2.75861 0.275874 2.75861H15.7241C15.8765 2.75861 16 2.88214 16 3.03448L16 6.25288Z" fill="#F5F5F5"/>
-                            <path d="M15.7241 13.2414H0.275874C0.123531 13.2414 0 13.1178 0 12.9655V9.74713H16V12.9655C16 13.1179 15.8764 13.2414 15.7241 13.2414Z" fill="#FF4B55"/>
-                            <path d="M16 6.25281H0V9.74686H16V6.25281Z" fill="#41479B"/>
-                          </svg>                    
-                        </span>Русский</option>
-                        <option value="en"><div>
-                          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M15.7241 13.2413H0.275874C0.123531 13.2413 0 13.1178 0 12.9655V3.03448C0 2.88214 0.123531 2.75861 0.275874 2.75861H15.7241C15.8764 2.75861 16 2.88214 16 3.03448V12.9655C15.9999 13.1178 15.8764 13.2413 15.7241 13.2413Z" fill="#41479B"/>
-                            <path d="M15.9999 3.03448C15.9999 2.88214 15.8764 2.75861 15.7241 2.75861H14.4898L9.37924 6.10694V2.75861H6.62063V6.10694L1.51006 2.75861H0.275874C0.123531 2.75861 0 2.88214 0 3.03448V3.74795L4.38464 6.62065H0V9.37927H4.38464L0 12.252V12.9655C0 13.1178 0.123531 13.2413 0.275874 13.2413H1.51009L6.62069 9.89302V13.2413H9.37931V9.89302L14.4899 13.2413H15.7241C15.8765 13.2413 16 13.1178 16 12.9655V12.252L11.6154 9.3793H15.9999V6.62069H11.6153L15.9999 3.74795V3.03448Z" fill="#F5F5F5"/>
-                            <path d="M15.9999 7.1724H8.82756V2.75861H7.17238V7.1724H0V8.82755H7.17238V13.2413H8.82756V8.82755H15.9999V7.1724Z" fill="#FF4B55"/>
-                            <path d="M5.59247 9.37927L0.00817871 13.0042C0.0277099 13.1374 0.137553 13.2414 0.276209 13.2414H0.656176L6.60584 9.3793H5.59247V9.37927Z" fill="#FF4B55"/>
-                            <path d="M10.8246 9.37927H9.81122L15.7522 13.2356C15.8907 13.2209 16 13.1078 16 12.9654V12.7386L10.8246 9.37927Z" fill="#FF4B55"/>
-                            <path d="M0 3.33902L5.05557 6.62069H6.06894L0.160718 2.78552C0.0663435 2.82937 0 2.92358 0 3.03449V3.33902Z" fill="#FF4B55"/>
-                            <path d="M10.3926 6.62071L15.9903 2.98707C15.9671 2.85826 15.8596 2.75867 15.7241 2.75867H15.3288L9.37927 6.62071H10.3926Z" fill="#FF4B55"/>
-                          </svg>
-                        </div>Английский</option>
-                      </select>
-                    </div>
+                    <a href="#" class="navbar__lang">
+                      <span class="navbar__lang-icon">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M15.7241 13.2413H0.275874C0.123531 13.2413 0 13.1178 0 12.9655V3.03448C0 2.88214 0.123531 2.75861 0.275874 2.75861H15.7241C15.8764 2.75861 16 2.88214 16 3.03448V12.9655C15.9999 13.1178 15.8764 13.2413 15.7241 13.2413Z" fill="#41479B"/>
+                          <path d="M15.9999 3.03448C15.9999 2.88214 15.8764 2.75861 15.7241 2.75861H14.4898L9.37924 6.10694V2.75861H6.62063V6.10694L1.51006 2.75861H0.275874C0.123531 2.75861 0 2.88214 0 3.03448V3.74795L4.38464 6.62065H0V9.37927H4.38464L0 12.252V12.9655C0 13.1178 0.123531 13.2413 0.275874 13.2413H1.51009L6.62069 9.89302V13.2413H9.37931V9.89302L14.4899 13.2413H15.7241C15.8765 13.2413 16 13.1178 16 12.9655V12.252L11.6154 9.3793H15.9999V6.62069H11.6153L15.9999 3.74795V3.03448Z" fill="#F5F5F5"/>
+                          <path d="M15.9999 7.1724H8.82756V2.75861H7.17238V7.1724H0V8.82755H7.17238V13.2413H8.82756V8.82755H15.9999V7.1724Z" fill="#FF4B55"/>
+                          <path d="M5.59247 9.37927L0.00817871 13.0042C0.0277099 13.1374 0.137553 13.2414 0.276209 13.2414H0.656176L6.60584 9.3793H5.59247V9.37927Z" fill="#FF4B55"/>
+                          <path d="M10.8246 9.37927H9.81122L15.7522 13.2356C15.8907 13.2209 16 13.1078 16 12.9654V12.7386L10.8246 9.37927Z" fill="#FF4B55"/>
+                          <path d="M0 3.33902L5.05557 6.62069H6.06894L0.160718 2.78552C0.0663435 2.82937 0 2.92358 0 3.03449V3.33902Z" fill="#FF4B55"/>
+                          <path d="M10.3926 6.62071L15.9903 2.98707C15.9671 2.85826 15.8596 2.75867 15.7241 2.75867H15.3288L9.37927 6.62071H10.3926Z" fill="#FF4B55"/>
+                        </svg>
+                      </span>
+                      <span class="navbar__lang-text">EN</span>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -248,7 +238,7 @@
                   </svg>                  
                   <a href="tel:+78801234567">+7 (880) 123-45-67</a>
                 </div>
-                <a href="#" class="navbar__phone-callback">Заказать звонок</a>
+                <a href="#callback" class="navbar__phone-callback">Заказать звонок</a>
               </div>
               <button class="navbar__btn btn-main">Бронирование</button>
               <div class="navbar__burger"><span></span></div>
@@ -610,13 +600,13 @@
             </ul>
             <div class="rooms__info">
               <div class="rooms__info__cards">
-                <div class="rooms__info__card rooms__info__card-standart" data-url="rooms=standart">
-                  <div class="rooms__info-close">
+                <div class="rooms__info__card rooms__info__card-standart" id="room=standart" data-url="rooms=standart">
+                  <a href="#" class="rooms__info-close">
                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <rect width="20" height="2.11" transform="matrix(0.707107 0.707107 -0.719783 0.694199 3.75928 1.92889)" fill="#FFFFFF"/>
                       <rect width="20" height="2.11" transform="matrix(0.707107 -0.707107 0.719783 0.694199 2.24072 16.071)" fill="#FFFFFF"/>
                     </svg>
-                  </div>
+                  </a>
                   <div class="rooms__info__slider">
                     <ul class="rooms__info__slider__list">
                       <li><img loading="lazy" src="img/img-1.png" alt="стандарт-1" class="rooms__info__slider-img"></li>
@@ -792,13 +782,13 @@
                     <button class="rooms__info-button btn-main">Забронировать</button>
                   </div>
                 </div>
-                <div class="rooms__info__card rooms__info__card-men" data-url="rooms=men">
-                  <div class="rooms__info-close">
+                <div class="rooms__info__card rooms__info__card-men" id="room=men" data-url="rooms=men">
+                  <a href="#" class="rooms__info-close">
                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <rect width="20" height="2.11" transform="matrix(0.707107 0.707107 -0.719783 0.694199 3.75928 1.92889)" fill="#FFFFFF"/>
                       <rect width="20" height="2.11" transform="matrix(0.707107 -0.707107 0.719783 0.694199 2.24072 16.071)" fill="#FFFFFF"/>
                     </svg>
-                  </div>
+                  </a>
                   <div class="rooms__info__slider">
                     <ul class="rooms__info__slider__list">
                       <li><img loading="lazy" src="img/img-1.png" alt="стандарт-1" class="rooms__info__slider-img"></li>
@@ -974,13 +964,13 @@
                     <button class="rooms__info-button btn-main">Забронировать</button>
                   </div>
                 </div>
-                <div class="rooms__info__card rooms__info__card-women" data-url="rooms=women">
-                  <div class="rooms__info-close">
+                <div class="rooms__info__card rooms__info__card-women" id="room=women" data-url="rooms=women">
+                  <a href="#" class="rooms__info-close">
                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <rect width="20" height="2.11" transform="matrix(0.707107 0.707107 -0.719783 0.694199 3.75928 1.92889)" fill="#FFFFFF"/>
                       <rect width="20" height="2.11" transform="matrix(0.707107 -0.707107 0.719783 0.694199 2.24072 16.071)" fill="#FFFFFF"/>
                     </svg>
-                  </div>
+                  </a>
                   <div class="rooms__info__slider">
                     <ul class="rooms__info__slider__list">
                       <li><img loading="lazy" src="img/img-1.png" alt="стандарт-1" class="rooms__info__slider-img"></li>
@@ -1156,13 +1146,13 @@
                     <button class="rooms__info-button btn-main">Забронировать</button>
                   </div>
                 </div>
-                <div class="rooms__info__card rooms__info__card-company" data-url="rooms=company">
-                  <div class="rooms__info-close">
+                <div class="rooms__info__card rooms__info__card-company" id="room=company" data-url="rooms=company">
+                  <a href="#" class="rooms__info-close">
                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <rect width="20" height="2.11" transform="matrix(0.707107 0.707107 -0.719783 0.694199 3.75928 1.92889)" fill="#FFFFFF"/>
                       <rect width="20" height="2.11" transform="matrix(0.707107 -0.707107 0.719783 0.694199 2.24072 16.071)" fill="#FFFFFF"/>
                     </svg>
-                  </div>
+                  </a>
                   <div class="rooms__info__slider">
                     <ul class="rooms__info__slider__list">
                       <li><img loading="lazy" src="img/img-1.png" alt="стандарт-1" class="rooms__info__slider-img"></li>
@@ -1338,13 +1328,13 @@
                     <button class="rooms__info-button btn-main">Забронировать</button>
                   </div>
                 </div>
-                <div class="rooms__info__card rooms__info__card-comfort" data-url="rooms=comfort">
-                  <div class="rooms__info-close">
+                <div class="rooms__info__card rooms__info__card-comfort" id="room=comfort" data-url="rooms=comfort">
+                  <a href="#" class="rooms__info-close">
                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <rect width="20" height="2.11" transform="matrix(0.707107 0.707107 -0.719783 0.694199 3.75928 1.92889)" fill="#FFFFFF"/>
                       <rect width="20" height="2.11" transform="matrix(0.707107 -0.707107 0.719783 0.694199 2.24072 16.071)" fill="#FFFFFF"/>
                     </svg>
-                  </div>
+                  </a>
                   <div class="rooms__info__slider">
                     <ul class="rooms__info__slider__list">
                       <li><img loading="lazy" src="img/img-1.png" alt="стандарт-1" class="rooms__info__slider-img"></li>
@@ -1520,13 +1510,13 @@
                     <button class="rooms__info-button btn-main">Забронировать</button>
                   </div>
                 </div>
-                <div class="rooms__info__card rooms__info__card-comfortplus" data-url="rooms=comfortplus">
-                  <div class="rooms__info-close">
+                <div class="rooms__info__card rooms__info__card-comfortplus" id="room=comfortplus" data-url="rooms=comfortplus">
+                  <a href="#" class="rooms__info-close">
                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <rect width="20" height="2.11" transform="matrix(0.707107 0.707107 -0.719783 0.694199 3.75928 1.92889)" fill="#FFFFFF"/>
                       <rect width="20" height="2.11" transform="matrix(0.707107 -0.707107 0.719783 0.694199 2.24072 16.071)" fill="#FFFFFF"/>
                     </svg>
-                  </div>
+                  </a>
                   <div class="rooms__info__slider">
                     <ul class="rooms__info__slider__list">
                       <li><img loading="lazy" src="img/img-1.png" alt="стандарт-1" class="rooms__info__slider-img"></li>
@@ -1702,13 +1692,13 @@
                     <button class="rooms__info-button btn-main">Забронировать</button>
                   </div>
                 </div>
-                <div class="rooms__info__card rooms__info__card-kitchen" data-url="rooms=kitchen">
-                  <div class="rooms__info-close">
+                <div class="rooms__info__card rooms__info__card-kitchen" id="room=kitchen" data-url="rooms=kitchen">
+                  <a href="#" class="rooms__info-close">
                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <rect width="20" height="2.11" transform="matrix(0.707107 0.707107 -0.719783 0.694199 3.75928 1.92889)" fill="#FFFFFF"/>
                       <rect width="20" height="2.11" transform="matrix(0.707107 -0.707107 0.719783 0.694199 2.24072 16.071)" fill="#FFFFFF"/>
                     </svg>
-                  </div>
+                  </a>
                   <div class="rooms__info__slider">
                     <ul class="rooms__info__slider__list">
                       <li><img loading="lazy" src="img/img-1.png" alt="стандарт-1" class="rooms__info__slider-img"></li>
@@ -1884,13 +1874,13 @@
                     <button class="rooms__info-button btn-main">Забронировать</button>
                   </div>
                 </div>
-                <div class="rooms__info__card rooms__info__card-toilet" data-url="rooms=toilet">
-                  <div class="rooms__info-close">
+                <div class="rooms__info__card rooms__info__card-toilet" id="room=toilet" data-url="rooms=toilet">
+                  <a href="#" class="rooms__info-close">
                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <rect width="20" height="2.11" transform="matrix(0.707107 0.707107 -0.719783 0.694199 3.75928 1.92889)" fill="#FFFFFF"/>
                       <rect width="20" height="2.11" transform="matrix(0.707107 -0.707107 0.719783 0.694199 2.24072 16.071)" fill="#FFFFFF"/>
                     </svg>
-                  </div>
+                  </a>
                   <div class="rooms__info__slider">
                     <ul class="rooms__info__slider__list">
                       <li><img loading="lazy" src="img/img-1.png" alt="стандарт-1" class="rooms__info__slider-img"></li>
@@ -2066,13 +2056,13 @@
                     <button class="rooms__info-button btn-main">Забронировать</button>
                   </div>
                 </div>
-                <div class="rooms__info__card rooms__info__card-shower" data-url="rooms=shower">
-                  <div class="rooms__info-close">
+                <div class="rooms__info__card rooms__info__card-shower" id="room=shower" data-url="rooms=shower">
+                  <a href="#" class="rooms__info-close">
                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <rect width="20" height="2.11" transform="matrix(0.707107 0.707107 -0.719783 0.694199 3.75928 1.92889)" fill="#FFFFFF"/>
                       <rect width="20" height="2.11" transform="matrix(0.707107 -0.707107 0.719783 0.694199 2.24072 16.071)" fill="#FFFFFF"/>
                     </svg>
-                  </div>
+                  </a>
                   <div class="rooms__info__slider">
                     <ul class="rooms__info__slider__list">
                       <li><img loading="lazy" src="img/img-1.png" alt="стандарт-1" class="rooms__info__slider-img"></li>
@@ -2239,11 +2229,31 @@
         </div>
       </div>
     </section>
-    <section class="section nybanner" style='display: none;'>
+    <section class="sbanner">
+      <div class="container">
+        <div class="sbanner__body">
+          <div class="sbanner__people">
+            <div class="sbanner__people-image">
+              <img src="../img/banner/sbanner_people.png" alt="человек">
+            </div>
+            <div class="sbanner__people-shadow"></div>
+          </div>
+          <div class="sbanner__info">
+            <h2 class="sbanner-title">Пандемия отступает- <span>ЛЕТО</span> наступает!</h2>
+            <p class="sbanner-text">В честь открытия нового сезона мы создали новый тариф <strong>“Bed&Breakfast”</strong></p>
+            <div class="sbanner__buttons">
+              <button class="sbanner-btn sbanner-btn-more">Узнать подробнее</button>
+              <button class="sbanner-btn sbanner-btn-booking">Забронировать</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- <section class="section nybanner" style="display:none">
         <div class="container">
         <div class="nybanner__card">
             <div class="nybanner__body">
-            <!-- <div class="nybanner__content">
+            <div class="nybanner__content">
                 <h2 class="nybanner-title">
                 С новым 2021 годом!!!
                 </h2>
@@ -2271,7 +2281,7 @@
                 <li class="nybanner__gift_2"><img src="images/banner/gift_2.png" alt="подарок"></li>
                 <li class="nybanner__gift_3"><img src="images/banner/gift_3.png" alt="подарок"></li>
                 </ul>
-            </div> -->
+            </div>
             </div>
         </div>
             <div class="nybanner__video">
@@ -2283,11 +2293,11 @@
             </div>
             </div>
         </div>
-    </section>
-    <section id="rooms" class="rooms" style='display: none;'>
+    </section> -->
+    <!-- <section id="rooms" class="rooms" style='display: none;'>
       <div class="container">
         <div class="rooms__body">
-          <h2 class="section-title rooms-title">Комнаты / <span>Удобства</span></h2>
+          <h2 class="section-title rooms-title" id="title">Комнаты / <span>Удобства</span></h2>
           <div class="rooms__content">
             <div class="rooms__tabs">
               <ul class="rooms__tabs__list">
@@ -2429,13 +2439,13 @@
             </div>
             <div class="rooms__info">
               <div class="rooms__info__cards">
-                <div class="rooms__info__card rooms__info__card-standart">
-                  <div class="rooms__info-close">
+                <div class="rooms__info__card rooms__info__card-standart" id="standart">
+                  <a href="#" class="rooms__info-close">
                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <rect width="20" height="2.11" transform="matrix(0.707107 0.707107 -0.719783 0.694199 3.75928 1.92889)" fill="#FFFFFF"/>
                       <rect width="20" height="2.11" transform="matrix(0.707107 -0.707107 0.719783 0.694199 2.24072 16.071)" fill="#FFFFFF"/>
                     </svg>
-                  </div>
+                  </a>
                   <div class="rooms__info__slider">
                     <ul class="rooms__info__slider__list">
                       <li><img loading="lazy" src="img/img-1.png" alt="стандарт-1" class="rooms__info__slider-img"></li>
@@ -2595,13 +2605,13 @@
                     <button class="rooms__info-button btn-main">Забронировать</button>
                   </div>
                 </div>
-                <div class="rooms__info__card rooms__info__card-men">
-                  <div class="rooms__info-close">
+                <div class="rooms__info__card rooms__info__card-men" id="room=men">
+                  <a href="#" class="rooms__info-close">
                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <rect width="20" height="2.11" transform="matrix(0.707107 0.707107 -0.719783 0.694199 3.75928 1.92889)" fill="#FFFFFF"/>
                       <rect width="20" height="2.11" transform="matrix(0.707107 -0.707107 0.719783 0.694199 2.24072 16.071)" fill="#FFFFFF"/>
                     </svg>
-                  </div>
+                  </a>
                   <div class="rooms__info__slider">
                     <ul class="rooms__info__slider__list">
                       <li><img loading="lazy" src="img/img-1.png" alt="стандарт-1" class="rooms__info__slider-img"></li>
@@ -2761,13 +2771,13 @@
                     <button class="rooms__info-button btn-main">Забронировать</button>
                   </div>
                 </div>
-                <div class="rooms__info__card rooms__info__card-women">
-                  <div class="rooms__info-close">
+                <div class="rooms__info__card rooms__info__card-women" id="room=women">
+                  <a href="#" class="rooms__info-close">
                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <rect width="20" height="2.11" transform="matrix(0.707107 0.707107 -0.719783 0.694199 3.75928 1.92889)" fill="#FFFFFF"/>
                       <rect width="20" height="2.11" transform="matrix(0.707107 -0.707107 0.719783 0.694199 2.24072 16.071)" fill="#FFFFFF"/>
                     </svg>
-                  </div>
+                  </a>
                   <div class="rooms__info__slider">
                     <ul class="rooms__info__slider__list">
                       <li><img loading="lazy" src="img/img-1.png" alt="стандарт-1" class="rooms__info__slider-img"></li>
@@ -2927,13 +2937,13 @@
                     <button class="rooms__info-button btn-main">Забронировать</button>
                   </div>
                 </div>
-                <div class="rooms__info__card rooms__info__card-company">
-                  <div class="rooms__info-close">
+                <div class="rooms__info__card rooms__info__card-company" id="room=company">
+                  <a href="#" class="rooms__info-close">
                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <rect width="20" height="2.11" transform="matrix(0.707107 0.707107 -0.719783 0.694199 3.75928 1.92889)" fill="#FFFFFF"/>
                       <rect width="20" height="2.11" transform="matrix(0.707107 -0.707107 0.719783 0.694199 2.24072 16.071)" fill="#FFFFFF"/>
                     </svg>
-                  </div>
+                  </a>
                   <div class="rooms__info__slider">
                     <ul class="rooms__info__slider__list">
                       <li><img loading="lazy" src="img/img-1.png" alt="стандарт-1" class="rooms__info__slider-img"></li>
@@ -3093,13 +3103,13 @@
                     <button class="rooms__info-button btn-main">Забронировать</button>
                   </div>
                 </div>
-                <div class="rooms__info__card rooms__info__card-comfort">
-                  <div class="rooms__info-close">
+                <div class="rooms__info__card rooms__info__card-comfort" id="room=comfort">
+                  <a href="#" class="rooms__info-close">
                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <rect width="20" height="2.11" transform="matrix(0.707107 0.707107 -0.719783 0.694199 3.75928 1.92889)" fill="#FFFFFF"/>
                       <rect width="20" height="2.11" transform="matrix(0.707107 -0.707107 0.719783 0.694199 2.24072 16.071)" fill="#FFFFFF"/>
                     </svg>
-                  </div>
+                  </a>
                   <div class="rooms__info__slider">
                     <ul class="rooms__info__slider__list">
                       <li><img loading="lazy" src="img/img-1.png" alt="стандарт-1" class="rooms__info__slider-img"></li>
@@ -3259,13 +3269,13 @@
                     <button class="rooms__info-button btn-main">Забронировать</button>
                   </div>
                 </div>
-                <div class="rooms__info__card rooms__info__card-comfortplus">
-                  <div class="rooms__info-close">
+                <div class="rooms__info__card rooms__info__card-comfortplus" id="room=comfortplus">
+                  <a href="#" class="rooms__info-close">
                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <rect width="20" height="2.11" transform="matrix(0.707107 0.707107 -0.719783 0.694199 3.75928 1.92889)" fill="#FFFFFF"/>
                       <rect width="20" height="2.11" transform="matrix(0.707107 -0.707107 0.719783 0.694199 2.24072 16.071)" fill="#FFFFFF"/>
                     </svg>
-                  </div>
+                  </a>
                   <div class="rooms__info__slider">
                     <ul class="rooms__info__slider__list">
                       <li><img loading="lazy" src="img/img-1.png" alt="стандарт-1" class="rooms__info__slider-img"></li>
@@ -3445,8 +3455,8 @@
           </div>
         </div>
       </div>
-    </section>
-    <section class="comfort" style='display: none'>
+    </section> -->
+    <!-- <section class="comfort" style='display: none'>
       <div class="container">
         <div class="comfort__body">
           <h2 class="section-title rooms-title">Удобства</h2>
@@ -3525,7 +3535,7 @@
             </div>
         </div>
       </div>
-    </section>
+    </section> -->
     <section id="about" class="about">
       <div class="container">
         <div class="about__body">
@@ -3544,50 +3554,37 @@
           <ul class="advantages__list">
             <li>
               <div class="advantages__icon">
-                <svg width="70" height="70" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M27.72 25.5491C27.137 23.5741 25.5546 23.7906 24.4727 24.7104C21.8076 27.1722 18.3375 32.3394 20.5584 39.7799C22.4184 46.0833 30.1579 50.1143 30.1579 50.1143H21.1357C21.1357 50.1143 16.4771 44.8929 16.0607 38.7519C15.5333 30.9877 18.6428 26.091 22.2518 22.8988C25.6387 19.8959 28.859 19.0032 28.859 19.0032L35.4465 40.5865L42.0339 19.0032C42.0339 19.0032 45.2543 19.8959 48.6412 22.8988C52.2502 26.091 55.3597 30.9877 54.8322 38.7519C54.4158 44.8929 49.7572 50.1143 49.7572 50.1143H40.735C40.735 50.1143 48.4739 46.0833 50.3346 39.7799C52.5555 32.3403 49.0853 27.1731 46.4202 24.7104C45.3375 23.7906 43.7551 23.5741 43.173 25.5491C41.1741 31.8525 35.4473 49.913 35.4473 49.913C35.4473 49.913 29.7204 31.8464 27.7216 25.5491H27.72Z" fill="#4D4F4A"/>
-                </svg>                
+                <img src="img/about_metro.svg" alt="metro">              
               </div>
               <h3 class="advantages-title">50 метров от м. Звездная</h3>
             </li>
             <li>
               <div class="advantages__icon">
-                <svg width="70" height="70" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M38.1748 38.1471H37.7944L37.5101 38.3999L31.9361 43.3583L31.4991 43.747L31.6236 44.3184L32.3629 47.7108L29.5972 50.4764L26.205 45.1709L26.0865 44.9856L25.9012 44.8671L20.5957 41.4749L23.3436 38.727L26.9305 39.6535L27.5492 39.8134L27.9541 39.319L32.697 33.5294L33.3963 32.6758L32.4781 32.0637L23.4935 26.074L26.7766 22.7897L38.6929 26.7634L39.2793 26.9589L39.7164 26.5218L45.8624 20.3757L45.8627 20.3754C47.4343 18.8026 49.7373 18.7896 51.0107 20.063C52.2837 21.336 52.2703 23.6377 50.6977 25.2116L44.5519 31.3574L44.1149 31.7944L44.3104 32.3807L48.2809 44.2924L44.9979 47.5766L39.0084 38.5924L38.7116 38.1471H38.1764H38.1748Z" fill="#4D4F4A" stroke="white" stroke-width="2"/>
-                </svg>               
+                <img src="img/about_airplane.svg" alt="аэропорт">               
               </div>
               <h3 class="advantages-title">15 минут до аэропорта</h3>
             </li>
             <li>
               <div class="advantages__icon">
-                <svg width="70" height="71" viewBox="0 0 70 71" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path fill-rule="evenodd" clip-rule="evenodd" d="M53.2685 37.4696C53.2685 41.1373 50.6208 43.5622 47.3542 43.5622H44.4436C42.2328 46.0485 39.0202 47.6132 35.4444 47.6132C31.8687 47.6132 28.656 46.0485 26.4453 43.5622H23.5339C20.2689 43.5622 17.6204 40.8351 17.6204 37.4696V33.4511C17.6204 30.0856 20.2689 27.3585 23.5339 27.3585H26.4453C28.656 24.8723 31.8687 23.3076 35.4444 23.3076C39.0201 23.3076 42.2328 24.8723 44.4435 27.3585H47.3542C50.6208 27.3585 53.2685 30.0856 53.2685 33.4511V37.4696ZM27.5564 31.4093H29.7731L27.904 39.5112H25.8915L25.0092 34.5318L24.1471 39.5112H22.1549L20.2664 31.432H22.5252L23.1814 36.1562L24.0451 31.432H26.0365L26.8783 36.1562L27.5564 31.4093ZM33.4254 33.8399H31.3934V39.5112H33.4254V33.8399ZM33.3538 32.4145C33.4022 32.2869 33.4244 32.1508 33.4189 32.0144C33.4189 31.4505 32.9652 30.9951 32.4062 30.9951C31.8472 30.9951 31.3935 31.4505 31.3935 32.0144C31.388 32.1508 31.4102 32.2869 31.4586 32.4145C31.507 32.5421 31.5808 32.6586 31.6753 32.7571C31.7699 32.8555 31.8834 32.9338 32.009 32.9873C32.1346 33.0408 32.2697 33.0684 32.4062 33.0684C32.5427 33.0684 32.6778 33.0408 32.8034 32.9873C32.929 32.9338 33.0425 32.8555 33.1371 32.7571C33.2316 32.6586 33.3054 32.5421 33.3538 32.4145ZM40.777 28.9788H47.2415C51.4634 28.9788 51.6481 33.4899 51.6481 33.4899V37.4428C51.6481 41.9417 47.423 41.9417 47.423 41.9417H33.824C36.3364 39.6659 36.2546 37.2832 36.2546 37.2832V33.7702C36.2546 29.1351 40.777 28.9788 40.777 28.9788Z" fill="#4D4F4A"/>
-                  <path fill-rule="evenodd" clip-rule="evenodd" d="M46.2514 33.3286H41.6731V35.1402H45.8002V37.0393H41.6731V39.5112H39.4953V31.4093H46.2514V33.3286ZM48.6099 30.9953C49.1681 30.9953 49.6226 31.4506 49.6226 32.0145C49.6226 32.576 49.1681 33.0297 48.6099 33.0297C48.0517 33.0297 47.5971 32.576 47.5971 32.0145C47.5971 31.4506 48.0517 30.9953 48.6099 30.9953ZM49.6291 39.5112H47.5971V33.8399H49.6291V39.5112Z" fill="#4D4F4A"/>
-                </svg>                            
+                <img src="img/about_wifi.svg" alt="аэропорт">                           
               </div>
               <h3 class="advantages-title">Быстрый Wi-Fi</h3>
             </li>
             <li>
               <div class="advantages__icon">
-                <svg width="70" height="70" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M35.4444 35.4444H46.787C45.9282 42.1042 41.4722 48.0509 35.4444 49.8981V35.4444H24.1018V26.2083L35.4444 21.169V35.4444ZM35.4444 17.6204L20.8611 24.1018V33.8241C20.8611 42.8171 27.0833 51.2106 35.4444 53.2685C43.8055 51.2106 50.0278 42.8171 50.0278 33.8241V24.1018L35.4444 17.6204Z" fill="#4D4F4A"/>
-                </svg>               
+                <img src="img/about_protect.svg" alt="аэропорт">               
               </div>
               <h3 class="advantages-title">Современная система безопасности</h3>
             </li>
             <li>
               <div class="advantages__icon">
-                <svg width="70" height="70" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M31.5841 33.1108L36.8542 39.7143C36.8542 39.7143 35.8455 45.9053 32.2015 48.7939C28.5575 51.6838 16 50.8576 16 50.8576C16 50.8576 16.2309 49.458 16.6684 47.5051L22.4179 40.7207C22.6591 40.4365 22.365 40.0179 22.0138 40.1461L18.3437 41.4822C19.2211 38.9625 20.3319 36.6412 21.6614 35.587C25.3054 32.6983 31.5841 33.1108 31.5841 33.1108V33.1108ZM54.6781 21.8768L53.4713 20.3647C53.1377 19.9474 52.5282 19.8778 52.1096 20.2099L37.9832 30.9637L35.9087 28.3647C35.5994 27.9771 34.9887 28.0496 34.7791 28.4984L33.2399 31.7977L38.51 38.4012L42.0829 37.6482C42.569 37.546 42.7768 36.9708 42.4682 36.5837L40.3967 33.9878L54.5231 23.234C54.9418 22.9026 55.0117 22.2947 54.6781 21.8768V21.8768Z" fill="#4D4F4A"/>
-                </svg>               
+                <img src="img/about_brash.svg" alt="аэропорт">               
               </div>
               <h3 class="advantages-title">Ежедневная уборка</h3>
             </li>
             <li>
               <div class="advantages__icon">
-                <svg width="70" height="70" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M17.3944 46.9639L17.3818 46.9765L17.3676 46.9871C16.877 47.355 16.8257 48.2924 17.5358 48.8604L17.5466 48.8691L17.5564 48.8789L21.2833 52.6057C21.8338 53.1562 22.6477 53.1562 23.1982 52.6057L37.9436 37.8603L38.0592 37.7447L38.2115 37.8043C41.8461 39.2266 46.1159 38.438 49.1242 35.4298C52.2058 32.3482 53.0337 27.7733 51.3324 24.0387L44.4525 30.7622L44.2758 30.9349L44.101 30.7602L39.2399 25.8991L39.0631 25.7223L39.2399 25.5455L45.9484 18.837C42.2073 17.2792 37.6413 17.967 34.5703 21.038C31.5621 24.0462 30.7735 28.316 32.1958 31.9506L32.2554 32.1029L32.1397 32.2185L17.3944 46.9639Z" fill="#4D4F4A" stroke="white" stroke-width="0.5"/>
-                </svg>               
+                <img src="img/about_wrench.svg" alt="аэропорт">     
               </div>
               <h3 class="advantages-title">Дизайнерский ремонт</h3>
             </li>
@@ -4507,7 +4504,7 @@
     <section class="awards">
       <div class="container">
         <div class="awards__body">
-          <h2 class="section-title awards-title">Наши награды</h2>
+          <h2 class="section-title awards-title">Наши достижения</h2>
           <div class="awards__content">
             <ul class="awards__list">
               <li class="awards__img"><a href="img/award_1.jpg"><img loading="lazy" src="img/award_1.jpg" alt="Награда от Booking.com"></a></li>
@@ -4612,10 +4609,10 @@
         </div>
       </div>
     </footer>
-    <section class="callback">
+    <section class="callback" id="callback">
       <div class="callback__body">
         <div class="callback__img">
-          <img src="img/banner/callback_img_new_year.png" alt="открытка">
+          <img src="img/banner/callback_img_summer.png" alt="открытка">
         </div>
         <div class="callback__info">
           <div class="callback__content">
@@ -4640,12 +4637,12 @@
               <button class="btn-main callback-btn">Отправить</button>
             </form>
           </div>
-          <div class="callback__close">
+          <a href="#" class="callback__close">
             <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
               <rect x="12.8777" y="3.89331" width="1.69412" height="12.7059" transform="rotate(45 12.8777 3.89331)" fill="#DDDFE0"/>
               <rect x="3.89282" y="5.09155" width="1.69412" height="12.7059" transform="rotate(-45 3.89282 5.09155)" fill="#DDDFE0"/>
             </svg>
-          </div>
+          </a>
         </div>
       </div>
     </section>

@@ -11,8 +11,9 @@
   visibility: hidden;
   opacity: 0;
   transition: .2s;
-  z-index: 3;
-  &._show {
+  z-index: 101;
+  &._show,
+  &:target {
     visibility: visible;
     opacity: 1;
   }
@@ -28,8 +29,12 @@
   position: relative;
   transform: translate(0,-100vh);
   transition: .2s;
+  @media screen and (max-width: 384px) {
+    border-radius: 0;
+  }
 }
-.callback._show .callback__body {
+.callback._show .callback__body,
+.callback:target .callback__body {
   transform: translate(0,0);
 }
 .callback__img img{
