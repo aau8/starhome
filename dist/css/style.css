@@ -256,7 +256,10 @@ section {
   right: 32px;
   z-index: 100;
   visibility: hidden;
-  opacity: 0;
+  opacity: .2;
+  -webkit-transform: scale(0);
+      -ms-transform: scale(0);
+          transform: scale(0);
   -webkit-transition: .2s;
   -o-transition: .2s;
   transition: .2s;
@@ -265,6 +268,9 @@ section {
 .arrowUp._show {
   visibility: visible;
   opacity: 1;
+  -webkit-transform: scale(1);
+      -ms-transform: scale(1);
+          transform: scale(1);
 }
 
 .arrowUp-btn {
@@ -286,7 +292,7 @@ section {
   transition: .2s;
 }
 
-.arrowUp-btn:hover {
+.arrowUp-btn:active {
   background: rgba(33, 33, 33, 0.6);
 }
 
@@ -814,12 +820,18 @@ section {
   font-size: 16px;
   font-weight: 600;
   color: var(--maincolor);
+  -webkit-transition: .2s;
+  -o-transition: .2s;
+  transition: .2s;
 }
 
 .navbar__phone-callback {
   font-size: 12px;
   position: relative;
   color: var(--maincolor);
+  -webkit-transition: .2s;
+  -o-transition: .2s;
+  transition: .2s;
 }
 
 .navbar__phone-callback:before {
@@ -830,6 +842,9 @@ section {
   width: 100%;
   height: 1px;
   background-color: var(--maincolor);
+  -webkit-transition: .2s;
+  -o-transition: .2s;
+  transition: .2s;
 }
 
 .navbar__btn {
@@ -4254,26 +4269,58 @@ section {
   border: 1px solid rgba(255, 255, 255, 0.6);
 }
 
-.sbanner-btn-more:hover {
-  background: rgba(255, 255, 255, 0.1);
+.sbanner-btn-more:active {
+  background: rgba(255, 255, 255, 0.2) !important;
 }
 
 .sbanner-btn-booking {
   background: rgba(33, 33, 33, 0.3);
 }
 
-.sbanner-btn-booking:hover {
-  -webkit-transform: scale(1.05);
-      -ms-transform: scale(1.05);
-          transform: scale(1.05);
-  -webkit-box-shadow: 0px 0px 10px rgba(33, 33, 33, 0.1);
-          box-shadow: 0px 0px 10px rgba(33, 33, 33, 0.1);
-  background: rgba(33, 33, 33, 0.2);
+.sbanner-btn-booking:active {
+  -webkit-transform: scale(1) !important;
+      -ms-transform: scale(1) !important;
+          transform: scale(1) !important;
+  -webkit-box-shadow: none !important;
+          box-shadow: none !important;
+  background: rgba(33, 33, 33, 0.2) !important;
 }
 
 @media screen and (min-width: 769px) {
+  .arrowUp-btn:hover {
+    background: rgba(33, 33, 33, 0.6);
+  }
+
   .navbar-link:hover {
     color: var(--accentcolor);
+  }
+
+  .navbar__phone-number a:hover {
+    color: var(--accentcolor);
+  }
+
+  .navbar__phone-callback:hover {
+    color: var(--accentcolor);
+  }
+
+  .navbar__phone-callback:hover::before {
+    background: var(--accentcolor);
+    -webkit-transform: translate(0, 2px);
+        -ms-transform: translate(0, 2px);
+            transform: translate(0, 2px);
+  }
+
+  .sbanner-btn-more:hover {
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  .sbanner-btn-booking:hover {
+    -webkit-transform: scale(1.05);
+        -ms-transform: scale(1.05);
+            transform: scale(1.05);
+    -webkit-box-shadow: 0px 0px 10px rgba(33, 33, 33, 0.1);
+            box-shadow: 0px 0px 10px rgba(33, 33, 33, 0.1);
+    background: rgba(33, 33, 33, 0.2);
   }
 }
 
