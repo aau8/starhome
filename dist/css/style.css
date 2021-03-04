@@ -1481,6 +1481,7 @@ section {
 }
 
 .rooms__tabs._showTabs .rooms__tabs__list .rooms__tab {
+  opacity: 0;
   -webkit-transition: .3s;
   -o-transition: .3s;
   transition: .3s;
@@ -1493,28 +1494,28 @@ section {
 }
 
 .rooms__tabs._showTabs .rooms__tabs__list .rooms__tab:nth-child(2) {
-  -webkit-animation: showTab .3s linear .05s;
-          animation: showTab .3s linear .05s;
+  -webkit-animation: showTab .3s linear .05s forwards;
+          animation: showTab .3s linear .05s forwards;
 }
 
 .rooms__tabs._showTabs .rooms__tabs__list .rooms__tab:nth-child(3) {
-  -webkit-animation: showTab .3s linear .1s;
-          animation: showTab .3s linear .1s;
+  -webkit-animation: showTab .3s linear .1s forwards;
+          animation: showTab .3s linear .1s forwards;
 }
 
 .rooms__tabs._showTabs .rooms__tabs__list .rooms__tab:nth-child(4) {
-  -webkit-animation: showTab .3s linear .15s;
-          animation: showTab .3s linear .15s;
+  -webkit-animation: showTab .3s linear .15s forwards;
+          animation: showTab .3s linear .15s forwards;
 }
 
 .rooms__tabs._showTabs .rooms__tabs__list .rooms__tab:nth-child(5) {
-  -webkit-animation: showTab .3s linear .2s;
-          animation: showTab .3s linear .2s;
+  -webkit-animation: showTab .3s linear .2s forwards;
+          animation: showTab .3s linear .2s forwards;
 }
 
 .rooms__tabs._showTabs .rooms__tabs__list .rooms__tab:nth-child(6) {
-  -webkit-animation: showTab .3s linear .25s;
-          animation: showTab .3s linear .25s;
+  -webkit-animation: showTab .3s linear .25s forwards;
+          animation: showTab .3s linear .25s forwards;
 }
 
 @-webkit-keyframes showTabFirst {
@@ -5094,8 +5095,36 @@ section {
             align-items: center;
   }
 
+@-webkit-keyframes showTab {
+    from {
+      opacity: 0;
+      -webkit-transform: translate(40px, 0);
+              transform: translate(40px, 0);
+    }
+
+    to {
+      opacity: 1;
+      -webkit-transform: translate(0, 0);
+              transform: translate(0, 0);
+    }
+}
+
+@keyframes showTab {
+    from {
+      opacity: 0;
+      -webkit-transform: translate(40px, 0);
+              transform: translate(40px, 0);
+    }
+
+    to {
+      opacity: 1;
+      -webkit-transform: translate(0, 0);
+              transform: translate(0, 0);
+    }
+}
+
   .rooms__tabs {
-    max-width: 800px;
+    max-width: none;
     overflow-x: auto;
     padding: 4px 6px 16px 6px;
     margin: 0 0 8px 0;

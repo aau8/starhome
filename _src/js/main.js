@@ -30,13 +30,21 @@ document.addEventListener('DOMContentLoaded', function(){
     }
   });
 
+  // ПРИ КЛИКЕ ПО ССЫЛКАМ БУДЕТ ПЕРЕХОД ПО ЯКОРЮ И ЗАКРЫТИЕ МЕНЮ
+  let navbarLink = document.querySelectorAll('.navbar-link');
+
+  for (let i=0; i < navbarLink.length; i++) {
+    navbarLink[i].addEventListener('click', (e) => {
+      menuToggle();
+    });
+  }
+
 // ОБРАТНЫЙ ЗВОНОК
   let callback = document.querySelector('.callback'),
       callbackModal = document.querySelector('.callback__body'),
       closeCallback = document.querySelector('.callback__close'),
       linkCallback = document.querySelector('.navbar__phone-callback'),
       linkMenuCallback = document.querySelector('.navbar__menu-callback');
-      // linkCallbacks = [linkCallback,linkMenuCallback];
 
   function callbackToggle() {
     callback.classList.toggle('_show');
@@ -51,7 +59,6 @@ document.addEventListener('DOMContentLoaded', function(){
     linkMenuCallback.addEventListener('click', function(e) {
       e.stopPropagation();
       callbackToggle();
-      menuToggle();
     });
 
     closeCallback.addEventListener('click', function() {
@@ -331,14 +338,19 @@ rsClose.addEventListener('click', (e) => {
     document.querySelector('.rooms__tabs__comfort').classList.remove('_showTabs');
     document.querySelector('.rooms__cards__rooms').classList.add('_active');
     document.querySelector('.rooms__cards__comfort').classList.remove('_active');
-   
-    if (document.querySelector('.rooms__tabs__rooms').classList.contains('_active')) {
-      setTimeout(function tabActiveOnloadWindow() {
-        let roomsTab = document.querySelectorAll('.rooms__tab');
-        for (let i = 0; i < roomsTab.length; i++) {
-          roomsTab[0].classList.add('_active');
-        }
-      }, 200);
+    
+    for (let i=0; i<roomTabs.length; i++) {
+      let roomTabsActive = document.querySelectorAll('.rooms__tab._active'),
+          roomTabsActiveArea = [];
+      
+      roomTabsActiveArea = roomTabsActive;
+
+      for (let i=0; i<roomTabsActiveArea.length;i++) {
+        roomTabsActiveArea[i].classList.remove('_active');
+        setTimeout(() => {
+          roomTabsActiveArea[i].classList.add('_active');
+        }, 500);
+      }
     }
   });
   tabComfort.addEventListener('click', function(e) {
@@ -353,13 +365,18 @@ rsClose.addEventListener('click', (e) => {
     document.querySelector('.rooms__cards__comfort').classList.add('_active');
     document.querySelector('.rooms__cards__rooms').classList.remove('_active');
     
-    if (document.querySelector('.rooms__tabs__comfort').classList.contains('_active')) {
-      setTimeout(function tabActiveOnloadWindow() {
-        let roomsTab = document.querySelectorAll('.rooms__tab');
-        for (let i = 0; i < roomsTab.length; i++) {
-          roomsTab[0].classList.add('_active');
-        }
-      }, 200);
+    for (let i=0; i<roomTabs.length; i++) {
+      let roomTabsActive = document.querySelectorAll('.rooms__tab._active'),
+          roomTabsActiveArea = [];
+      
+      roomTabsActiveArea = roomTabsActive;
+
+      for (let i=0; i<roomTabsActiveArea.length;i++) {
+        roomTabsActiveArea[i].classList.remove('_active');
+        setTimeout(() => {
+          roomTabsActiveArea[i].classList.add('_active');
+        }, 500);
+      }
     }
   });
 

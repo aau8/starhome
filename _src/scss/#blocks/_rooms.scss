@@ -60,6 +60,7 @@
   &._showTabs {
     & .rooms__tabs__list {
       & .rooms__tab {
+        opacity: 0;
         transition: .3s;
         &:nth-child(1) {
           // animation: showTabFirst .3s linear 0s;
@@ -70,19 +71,19 @@
         &:nth-child(2) {
           // transition: .3s;
           // transform: translate(0);
-          animation: showTab .3s linear .05s;
+          animation: showTab .3s linear .05s forwards;
         }
         &:nth-child(3) {
-          animation: showTab .3s linear .1s;
+          animation: showTab .3s linear .1s forwards;
         }
         &:nth-child(4) {
-          animation: showTab .3s linear .15s;
+          animation: showTab .3s linear .15s forwards;
         }
         &:nth-child(5) {
-          animation: showTab .3s linear .2s;
+          animation: showTab .3s linear .2s forwards;
         }
         &:nth-child(6) {
-          animation: showTab .3s linear .25s;
+          animation: showTab .3s linear .25s forwards;
         }
         
         @keyframes showTabFirst {
@@ -99,6 +100,17 @@
           } to {
             opacity: 1;
             transform: translate(0,0);
+          }
+        }
+        @media screen and (max-width: 1024px) {
+          @keyframes showTab {
+            from {
+              opacity: 0;
+              transform: translate(40px,0);
+            } to {
+              opacity: 1;
+              transform: translate(0,0);
+            }
           }
         }
         &._active {
@@ -121,8 +133,7 @@
     }
   }
   @media screen and (max-width: 1024px) {
-    max-width: 800px;
-    // width: 950px;
+    max-width: none;
     overflow-x: auto;
     padding: 4px 6px 16px 6px;
     margin: 0 0 8px 0;
