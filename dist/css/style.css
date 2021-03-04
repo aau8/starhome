@@ -1494,28 +1494,33 @@ section {
 }
 
 .rooms__tabs._showTabs .rooms__tabs__list .rooms__tab:nth-child(2) {
-  -webkit-animation: showTab .3s linear .05s forwards;
-          animation: showTab .3s linear .05s forwards;
+  -webkit-animation: showTab .3s linear .05s;
+          animation: showTab .3s linear .05s;
+  opacity: 1;
 }
 
 .rooms__tabs._showTabs .rooms__tabs__list .rooms__tab:nth-child(3) {
-  -webkit-animation: showTab .3s linear .1s forwards;
-          animation: showTab .3s linear .1s forwards;
+  -webkit-animation: showTab .3s linear .1s;
+          animation: showTab .3s linear .1s;
+  opacity: 1;
 }
 
 .rooms__tabs._showTabs .rooms__tabs__list .rooms__tab:nth-child(4) {
-  -webkit-animation: showTab .3s linear .15s forwards;
-          animation: showTab .3s linear .15s forwards;
+  -webkit-animation: showTab .3s linear .15s;
+          animation: showTab .3s linear .15s;
+  opacity: 1;
 }
 
 .rooms__tabs._showTabs .rooms__tabs__list .rooms__tab:nth-child(5) {
-  -webkit-animation: showTab .3s linear .2s forwards;
-          animation: showTab .3s linear .2s forwards;
+  -webkit-animation: showTab .3s linear .2s;
+          animation: showTab .3s linear .2s;
+  opacity: 1;
 }
 
 .rooms__tabs._showTabs .rooms__tabs__list .rooms__tab:nth-child(6) {
-  -webkit-animation: showTab .3s linear .25s forwards;
-          animation: showTab .3s linear .25s forwards;
+  -webkit-animation: showTab .3s linear .25s;
+          animation: showTab .3s linear .25s;
+  opacity: 1;
 }
 
 @-webkit-keyframes showTabFirst {
@@ -4111,6 +4116,7 @@ section {
   height: 265px;
   background: #54BA99;
   background-image: url(../img/banner/banner_summer_1216px.png);
+  background-position: center;
   border-radius: 10px;
   -webkit-box-shadow: 0px 0px 30px rgba(84, 186, 153, 0.2);
           box-shadow: 0px 0px 30px rgba(84, 186, 153, 0.2);
@@ -4336,16 +4342,16 @@ section {
 }
 
 @media screen and (min-width: 1025px) {
-  .rooms__tab:last-child {
-    margin: 0;
-  }
-
   .rooms__tab:hover {
     -webkit-transform: scale(1.02);
         -ms-transform: scale(1.02);
             transform: scale(1.02);
     -webkit-box-shadow: 0px 0px 10px rgba(12, 42, 78, 0.15);
             box-shadow: 0px 0px 10px rgba(12, 42, 78, 0.15);
+  }
+
+  .rooms__tab:last-child {
+    margin: 0;
   }
 }
 
@@ -4429,6 +4435,7 @@ section {
   .sbanner__body {
     max-width: 660px;
     background-image: url(../img/banner/banner_summer_660px.png);
+    background-position: center;
   }
 
   .sbanner__people {
@@ -5139,6 +5146,12 @@ section {
             align-items: center;
   }
 
+  .rooms__tab._active {
+    -webkit-transform: scale(1);
+        -ms-transform: scale(1);
+            transform: scale(1);
+  }
+
   .rooms__tab {
     height: 36px;
     -webkit-box-pack: center;
@@ -5147,12 +5160,6 @@ section {
     border-radius: 4px;
     margin: 0 18px 0 0;
     padding: 0 32px;
-  }
-
-  .rooms__tab._active {
-    -webkit-transform: scale(1);
-        -ms-transform: scale(1);
-            transform: scale(1);
   }
 
   .rooms__tabs-title {
@@ -5368,6 +5375,8 @@ section {
     height: auto;
     border-radius: 0;
     background-image: url(../img/banner/banner_summer_360px.png);
+    background-position: center;
+    background-repeat: no-repeat;
     padding: 32px 0;
   }
 
