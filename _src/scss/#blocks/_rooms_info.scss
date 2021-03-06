@@ -1,63 +1,74 @@
 .rooms__info {
   // display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 1000;
-  overflow-y: hidden;
-  &._overflow_auto {
-    overflow-y: auto;
-  }
-}
-.rooms__info-bg {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0,0,0,.2);
-  // pointer-events: all;
-  // &._active {
-  //   display: block;
+  // position: fixed;
+  // top: 0;
+  // left: 0;
+  // width: 100%;
+  // height: 100%;
+  // pointer-events: none;
+  // z-index: 1000;
+  // overflow-y: hidden;
+  // &._overflow_auto {
+  //   overflow-y: auto;
   // }
 }
-.rooms__info__cards {
-  padding: 40px 0 100px 0;
-  @media screen and (max-width: 800px) {
-    padding: 0;
-  }
-}
+// .rooms__info-bg {
+//   display: none;
+//   position: fixed;
+//   top: 0;
+//   left: 0;
+//   width: 100%;
+//   height: 100%;
+//   background-color: rgba(0,0,0,.2);
+//   // pointer-events: all;
+//   // &._active {
+//   //   display: block;
+//   // }
+// }
+// .rooms__info__cards {
+//   padding: 40px 0 100px 0;
+//   @media screen and (max-width: 800px) {
+//     padding: 0;
+//   }
+// }
 .rooms__info__card {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   visibility: hidden;
   opacity: 0;
-  max-width: 800px;
-  width: 100%;
-  background-color: #fff;
-  border-radius: 2px;
-  margin: auto;
-  padding: 0 0 24px 0;
-  position: absolute;
-  left: 50%;
-  // pointer-events: all;
-  z-index: 1;
+  background-color: rgba(0,0,0,.2);
+  // background-color: #fff;
   // transition-delay: visibility 0s, opacity .2s;
-  transform: translate(-50%,100%);
   transition: .3s;
+  z-index: 100;
   @media screen and (max-width: 800px) {
     transition: .5s;
   }
-  &._active {
+  &._show {
     visibility: visible;
     opacity: 1;
-    transform: translate(-50%,0);
-  & ~ .rooms__info-bg {
-      display: block;
+    overflow-y: auto;
+    & .rooms__info__card__body {
+      transform: translate(0,0);
     }
   }
+}
+
+.rooms__info__card__body {
+  max-width: 800px;
+  width: 100%;
+  // position: absolute;
+  // left: 50%;
+  // z-index: 1;
+  background: #FFFFFF;
+  border-radius: 2px;
+  margin: 0 auto;
+  padding: 0 0 24px 0;
+  transform: translate(0,100%);
+  transition: .5s ease-in-out;
 }
 
 .rooms__info-close {

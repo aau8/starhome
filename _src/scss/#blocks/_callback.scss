@@ -251,4 +251,10 @@
   top: 12px;
   right: 12px;
   cursor: pointer;
+  & svg rect {
+    transition: .2s;
+  }
+  &:hover svg rect{
+    fill: #212121;
+  }
 }

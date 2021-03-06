@@ -35,7 +35,8 @@ document.addEventListener('DOMContentLoaded', function(){
 
   for (let i=0; i < navbarLink.length; i++) {
     navbarLink[i].addEventListener('click', (e) => {
-      menuToggle();
+      menu.classList.remove('_active');
+      body.classList.remove('_lock');
     });
   }
 
@@ -148,11 +149,13 @@ document.addEventListener('DOMContentLoaded', function(){
 // ОТКРЫТИЕ МОДУЛЯ БРОНИРОВАНИЕ НА ОСНОВАНИИ УКАЗАННЫХ ДАТ В ФОРМЕ БРОНИРОВАНИЯ НА ГЛАВНОМ ЭКРАНЕ
 let btnOpenModuleBooking = document.querySelector('.header-buttonAvailability');
 let btnOpenModuleVisa = document.querySelector('.header-visaSupport');
-let uidModule = 'a7012a46-0c22-4353-92b9-f6169736cc29';
 let langModule = 'ru';
 let rsCard = document.querySelector('.rs');
 let rsOnloadLoad = document.querySelector('.rs-onload-load');
 let rsIframe = document.querySelector('#rsIframe');
+let rsTitle = document.querySelector('.rs-title');
+
+rsTitle.innerHTML = "Бронирование";
 
 btnOpenModuleBooking.addEventListener('click', function() {
   let checkInModule = document.querySelector('#checkInDateModule').value,
@@ -167,7 +170,7 @@ btnOpenModuleBooking.addEventListener('click', function() {
       monthCheckOutModule = checkOutModule.substring(5, 7),
       dayCheckOutModule = checkOutModule.substring(8, 10),
       dateCheckOutModule = dayCheckOutModule + '-' + monthCheckOutModule + '-' + yearCheckOutModule,
-      rsOpenUrl = 'https://reservationsteps.ru/rooms/index/' + uidModule + '?&dfrom=' + dateCheckInModule + '&dto=' + dateCheckOutModule + '&lang=' + langModule;
+      rsOpenUrl = 'https://reservationsteps.ru/rooms/index/a7012a46-0c22-4353-92b9-f6169736cc29' + '?&dfrom=' + dateCheckInModule + '&dto=' + dateCheckOutModule + '&lang=' + langModule;
       
 
   rsCard.classList.add('_show');
@@ -195,22 +198,37 @@ btnOpenModuleBooking.addEventListener('click', function() {
   };
 });
 
+// ОТКРЫТИЕ ВИЗОВОЙ ПОДДЕРЖКИ В ФРЕЙМЕ
 btnOpenModuleVisa.addEventListener('click', () => {
   rsCard.classList.add('_show');
   rsIframe.setAttribute('src', 'https://www.hotels-pro.ru/order/9916/lang/ru');
+  rsTitle.innerHTML = "Визовая поддержка";
 });
 
+// ЗАКРЫТИЕ ФРЕЙМА
 let rsClose = document.querySelector('.rs-close');
 
 rsClose.addEventListener('click', (e) => {
   e.stopPropagation();
   rsCard.classList.remove('_show');
   body.classList.remove('_lock');
+  rsIframe.setAttribute('src', '');
 
   setTimeout(() => {
     rsOnloadLoad.classList.remove('_hide');
   }, 100);
 });
+
+// ОТКРЫТИЕ МОДУЛЯ БРОНИРОВАНИЯ ПРИ НАЖАТИИ НА КНОПКИ ЗАБРОНИРОВАТЬ
+let btnBooking = document.querySelectorAll('.btn-booking');
+
+for (let i = 0; i < btnBooking.length; i++) {
+  btnBooking[i].addEventListener('click',(e) => {
+    rsCard.classList.add('_show');
+    rsIframe.setAttribute('src', 'https://reservationsteps.ru/rooms/index/a7012a46-0c22-4353-92b9-f6169736cc29');
+    rsTitle.innerHTML = "Бронирование";
+  });
+}
 
 // ПРИ ВЫБОРЕ ДНЯ ЗАЕЗДА, ПОЗЖЕ ЧЕМ ВЫЕЗД, ДЕНЬ ВЫЕЗДА АВТОМАТИЧЕСКИ ПЕРЕНОСИТСЯ С РАЗНИЦОЙ В ОТ ЗАЕЗДА В 1 ДЕНЬ
   let checkInOne = document.querySelector('#checkInDateModule');
@@ -341,18 +359,29 @@ rsClose.addEventListener('click', (e) => {
     
     for (let i=0; i<roomTabs.length; i++) {
       let roomTabsActive = document.querySelectorAll('.rooms__tab._active'),
-          roomTabsActiveArea = [];
-      
-      roomTabsActiveArea = roomTabsActive;
+          roomTabsActiveArea = [] = roomTabsActive;
 
       for (let i=0; i<roomTabsActiveArea.length;i++) {
         roomTabsActiveArea[i].classList.remove('_active');
         setTimeout(() => {
           roomTabsActiveArea[i].classList.add('_active');
-        }, 500);
+        }, 800);
       }
     }
   });
+ 
+  for (let i=0; i<roomTabs.length; i++) {
+    let roomTabsActive = document.querySelectorAll('.rooms__tab._active'),
+        roomTabsActiveArea = [] = roomTabsActive;
+
+    for (let i=0; i<roomTabsActiveArea.length;i++) {
+      roomTabsActiveArea[i].classList.remove('_active');
+      setTimeout(() => {
+        roomTabsActiveArea[i].classList.add('_active');
+      }, 800);
+    }
+  }
+
   tabComfort.addEventListener('click', function(e) {
     this.classList.add('_active');
     tabRooms.classList.remove('_active');
@@ -384,48 +413,80 @@ rsClose.addEventListener('click', (e) => {
   // ЗАКРЫТИЕ КАРТОЧКИ С ИНФОРМАЦИЕЙ О КОМНАТЕ
   let closeCardRoom = document.querySelectorAll('.rooms__info-close');
   let cardRoom = document.querySelectorAll('.rooms__info__card');
-  let bgRoom = document.querySelector('.rooms__info-bg');
+  // let bgRoom = document.querySelector('.rooms__info-bg');
   let roomsBlock = document.querySelector('.rooms__info');
-  let roomsInfo = document.querySelector('.rooms__info');
+  // let roomsInfo = document.querySelector('.rooms__info');
+  let roomsCardButtons = document.querySelectorAll('.rooms__card-button');
 
   for (i = 0; i < closeCardRoom.length; i++) {
     closeCardRoom[i].addEventListener('click', function() {
       for (i = 0; i < cardRoom.length; i++) {
-        cardRoom[i].classList.remove('_active');
+        cardRoom[i].classList.remove('_show');
       }
-      roomsBlock.style.pointerEvents = 'none';
+      // roomsBlock.style.pointerEvents = 'none';
       body.classList.remove('_lock');
-      bgRoom.classList.remove('_active');
-      roomsInfo.classList.remove('_overflow_auto');
-    });
-  }
-  bgRoom.addEventListener('click', function() {
-    for (i = 0; i < cardRoom.length; i++) {
-      cardRoom[i].classList.remove('_active');
-      body.classList.remove('_lock');
-      roomsBlock.style.pointerEvents = 'none';
-      roomsInfo.classList.remove('_overflow_auto');
-    }
-  });
-  for(i=0;i<cardRoom.length;i++) {
-    document.addEventListener('click', function(e) {
-      let target = e.target;
-      let itsCardRoom = target == cardRoom[i];
+      // bgRoom.classList.remove('_active');
+      // roomsInfo.classList.remove('_overflow_auto');
     });
   }
 
+  // for (i = 0; i < cardRoom.length; i++) {
+  //   document.addEventListener('click', function(e) {
+  //     let target = e.target;
+  //     let itsCardRoom = target == document.querySelector('.rooms__info__card._active') || menu.contains(target);
+  //     // let itsBurger = target == ;
+  //     let menuIsActive = menu.classList.contains('_active');
+  
+  //     if (!itsCardRoom && menuIsActive) {
+  //       menuToggle();
+  //     }
+  //   });
+  // }
+
+  openClosingElemOnBg = document.querySelectorAll('.openClosingElemOnBg');
+  for (i = 0; i < cardRoom.length; i++) {
+    for (i = 0; i < openClosingElemOnBg.length; i++) {
+    document.addEventListener('click', function(e) {
+      let target = e.target,
+          itsClosingElem = target == document.querySelector('.closingElemOnBg._show') || menu.contains(target),
+          itsopenClosingElemOnBg = target == openClosingElemOnBg[i];
+      
+      // let itsBurger = target == ;
+      // let menuIsActive = menu.classList.contains('_active');
+  
+      if (!itsClosingElem && !itsopenClosingElemOnBg) {
+        document.querySelector('.closingElemOnBg._show').classList.remove('_show');
+      }
+    });
+    }
+  }
+  // bgRoom.addEventListener('click', function() {
+  //   for (i = 0; i < cardRoom.length; i++) {
+  //     cardRoom[i].classList.remove('_active');
+  //     body.classList.remove('_lock');
+  //     roomsBlock.style.pointerEvents = 'none';
+  //     roomsInfo.classList.remove('_overflow_auto');
+  //   }
+  // });
+  // for(i=0;i<cardRoom.length;i++) {
+  //   document.addEventListener('click', function(e) {
+  //     let target = e.target;
+  //     let itsCardRoom = target == cardRoom[i];
+  //   });
+  // }
+
   // ПРИ КЛИКЕ ПО ВИДУ КОМНАТЫ БУДЕТ ОТКРЫВАТЬСЯ СООТВЕТСТВУЮЩАЯ КАРТОЧКА
-  let roomsCardButtons = document.querySelectorAll('.rooms__card-button');
+  // let roomsCardButtons = document.querySelectorAll('.rooms__card-button');
 
   for (i = 0; i < roomsCardButtons.length; i++) {
     roomsCardButtons[i].addEventListener('click', function() {
       // if(window.location.hash) {
       // }
-      let roomsInfoCard = document.querySelector('.rooms__info__card-' + this.dataset.info);
-      roomsInfo.style.pointerEvents = 'all';
-      roomsInfoCard.classList.add('_active');
+      let roomsInfoCard = document.querySelector('#room-' + this.dataset.info);
+      // roomsInfo.style.pointerEvents = 'all';
+      roomsInfoCard.classList.add('_show');
       body.classList.add('_lock');
-      roomsInfo.classList.add('_overflow_auto');
+      // roomsInfo.classList.add('_overflow_auto');
 
       // function roomsInfoHash() {
       //   let hash = window.location.hash.substring(1);
@@ -437,10 +498,10 @@ rsClose.addEventListener('click', (e) => {
     });
   }
   // ОТКРЫТИЕ СООТВЕТСТВУЮЩЕЙ КАРТОЧКИ ПО URL
-  if(window.location.hash) {
-    let hash = window.location.hash.substring(1);
+  // if(window.location.hash) {
+  //   let hash = window.location.hash.substring(1);
     
-  }
+  // }
 
 
   // Аккордеоны
@@ -473,14 +534,6 @@ rsClose.addEventListener('click', (e) => {
     servicesCards.classList.toggle('_show');
     this.classList.toggle('_active');
   });
-  // ПЛАВНЫЙ СКРОЛЛ ДО ЯКОРЕЙ
-  // $("body").on('click', '[href*="#"]', function(e){ 
-  //   var fixedOffset = 100; 
-  //   $('html,body').stop().animate({ scrollTop: $(this.hash).offset().top - fixedOffset }, 1000); // пользователя переведет на указанный в href якорь со скоростью 1000ms и с отступом 100px сверху
-  //   menu.classList.remove('_active');
-  //   body.classList.remove('_lock');
-  //   e.preventDefault();
-  // });
  
   // ПОЯВЛЕНИЕ СТРЕЛКИ НАВЕРХ ПОСЛЕ СКРОЛЛА НА ВЫСОТУ ЭКРАНА
   let windowHeight = document.querySelector('html').clientHeight;
@@ -498,15 +551,57 @@ rsClose.addEventListener('click', (e) => {
   // ФИКСИРОВАНИЕ NAVBAR ПРИ СКРОЛЛЕ НА ВЫСОТУ ЭКРАНА
   window.addEventListener('scroll', function() {
 
-    let navbar = document.querySelector('.navbar');
+    let navbar = document.querySelector('.navbar'),
+        navbarUp = document.querySelector('.navbar__up');
 
     if (pageYOffset >= windowHeight ) {
       navbar.classList.add('_fixed');
       body.style.paddingTop = navbar.clientHeight + 'px';
+      if (getComputedStyle(navbarUp).display != 'none') {
+        navbar.style.top = '-96px';
+      }
     }
     if (pageYOffset <= windowHeight ) {
       navbar.classList.remove('_fixed');
       body.style.paddingTop = 0;
     }
   });
+
+  // АНИМАЦИЯ НА САЙТЕ
+  const animItems = document.querySelectorAll('._anim-item');
+
+  if (animItems.length > 0) {
+    window.addEventListener('scroll', animOnScroll);
+    function animOnScroll(e) {
+      for (let i = 0; i < animItems.length; i++) {
+        const animItem = animItems[i],
+              animItemHeight = animItem.offsetHeight,
+              animItemOffset = offset(animItem).top,
+              animStart = 4;
+
+        let animItemPoint = window.innerHeight - animItemHeight / animStart;
+        if (animItemHeight > window.innerHeight) {
+          animItemPoint = window.innerHeight - window.innerHeight / animStart;
+        }
+
+        if((pageYOffset > animItemOffset - animItemPoint) && pageYOffset < (animItemOffset + animItemHeight)) {
+          animItem.classList.add('_anim');
+        } else {
+          if (!animItem.classList.contains('_anim-stop')) {
+            animItem.classList.remove('_anim');
+          }
+        }
+      }
+    }
+    function offset(e) {
+      const rect = e.getBoundingClientRect(),
+            scrollLeft = window.pageXOffset || document.documentElement.scrollLeft,
+            scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      
+      return { top: rect.top + scrollTop, left: rect.left + scrollLeft };
+    }
+  }
+  animOnScroll();
+  // АВТОМАТИЧЕСКОЕ ПРОСТАВЛЕНИЕ НОВОГО ГОДА В ФУТЕРЕ
+  document.querySelector('#copyrightNowYear').textContent = yearIn;
 });

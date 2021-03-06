@@ -1,0 +1,494 @@
+// РАЗДЕЛ NAVBAR (ПАНЕЛЬ НАВИГАЦИИ)
+.navbar._anim {
+  opacity: 1;
+}
+
+.navbar {
+  opacity: 0;
+}
+
+// РАЗДЕЛ HEADER (ГЛАВНЫЙ ЭКРАН)
+.header._anim {
+  & .header-title {
+    transform: translate(0,0);
+    opacity: 1;
+    transition-delay: .1s;
+  }
+  & .header-description {
+    transform: translate(0,0);
+    opacity: 1;
+    transition-delay: .2s;
+  }
+  & .header__form {
+    transform: translate(0,0);
+    opacity: 1;
+    transition-delay: .3s;
+  }
+  & .header__guests {
+    transform: translate(0,0);
+    opacity: 1;
+    transition-delay: .4s;
+  }
+  & .header__slider {
+    opacity: 1;
+    transition-delay: .2s;
+  }
+}
+
+.header-title,
+.header-description,
+.header__form,
+.header__guests {
+  transform: translate(0,60px);
+  opacity: 0;
+  transition: .4s ease-in-out;
+}
+
+.header__slider {
+  opacity: 0;
+  transition: .6s;
+}
+
+// РАЗДЕЛ ROOMS (КОМНАТЫ И УСЛУГИ)
+.rooms__content._anim {
+  & .rooms__cards {
+    opacity: 1;
+    transform: translate(0,0);
+  }
+  & .rooms__acc {
+    opacity: 1;
+    transition-delay: .2s;
+  }
+  & .rooms__tabs__list .rooms__tab {
+    opacity: 1;
+    transform: translate(0,0);
+    &:nth-child(1) {
+      transition-delay: .2s;
+    }
+    &:nth-child(2) {
+      transition-delay: .25s;
+    }
+    &:nth-child(3) {
+      transition-delay: .3s;
+    }
+    &:nth-child(4) {
+      transition-delay: .35s;
+    }
+    &:nth-child(5) {
+      transition-delay: .4s;
+    }
+    &:nth-child(6) {
+      transition-delay: .45s;
+    }
+  }
+}
+
+.rooms__cards {
+  opacity: 0;
+  transform: translate(50px,0);
+  transition: .4s;
+}
+
+.rooms__acc {
+  opacity: 0;
+  transition: .4s;
+}
+
+.rooms__tab {
+  opacity: 0;
+  transform: translate(0,40px);
+  transition: .4s;
+}
+
+// РАЗДЕЛ SBANNER (ЛЕТНИЙ БАННЕР)
+.sbanner._anim {
+  & .sbanner__people-image {
+    transform: translate(0,0);
+    opacity: 1;
+    transition: 1s cubic-bezier(0, 0, 0.6, 1.09) .2s;
+    animation: sbannerPeople 2s ease-in 1.5s infinite alternate;
+  }
+  & .sbanner__people-shadow {
+    visibility: visible;
+    opacity: 1;
+    animation: sbannerShadow 2s ease-in 1.5s infinite alternate;
+  }
+  
+  @keyframes sbannerPeople {
+    from {
+      transform: translate(0,0);
+    } to {
+      transform: translate(0,-20px);
+    }
+  }
+
+  @keyframes sbannerShadow {
+    from {
+      opacity: 1;
+      width: 200px;
+      height: 15px;
+    } to {
+      opacity: .5;
+      width: 280px;
+      height: 18px;
+    }
+  }
+  & .sbanner-title {
+    opacity: 1;
+    transform: translate(0,0);
+    transition: .4s .2s;
+  }
+  & .sbanner-text {
+    opacity: 1;
+    transform: translate(0,0);
+    transition: .4s .3s;
+  }
+  & .sbanner__buttons {
+    opacity: 1;
+    transform: translate(0,0);
+    transition: .4s .4s;
+  }
+}
+
+.sbanner__people-image {
+  transform: translate(0,-50%);
+  opacity: 0;
+}
+
+.sbanner__people-shadow {
+  visibility: hidden;
+  opacity: 0;
+  transition: 2s;
+}
+
+.sbanner-title,
+.sbanner-text,
+.sbanner__buttons {
+  opacity: 0;
+  transform: translate(0,30px);
+}
+
+// РАЗДЕЛ ABOUT (О НАС)
+.about__body._anim {
+  & .about-text {
+    opacity: 1;
+    transform: translate(0,0);
+    transition: .4s;
+    &:nth-child(2) {
+      transition-delay: .2s;
+    }
+    &:nth-child(3) {
+      transition-delay: .3s;
+    }
+  }
+}
+
+.about-text {
+  opacity: 0;
+  transform: translate(0,30px);
+}
+
+// РАЗДЕЛ ADVANTAGES (ПРЕИМУЩЕСТВА)
+.advantages__list._anim {
+  & li {
+    &:nth-child(1) {
+      & .advantages__icon {
+        transform: scale(1);
+        transition-delay: .1s;
+      }
+      & .advantages-title {
+        opacity: 1;
+        transform: translate(0);
+        transition-delay: .1s;
+      }
+    }
+    &:nth-child(2) {
+      & .advantages__icon {
+        transform: scale(1);
+        transition-delay: .2s;
+      }
+      & .advantages-title {
+        opacity: 1;
+        transform: translate(0);
+        transition-delay: .2s;
+      }
+    }
+    &:nth-child(3) {
+      & .advantages__icon {
+        transform: scale(1);
+        transition-delay: .3s;
+      }
+      & .advantages-title {
+        opacity: 1;
+        transform: translate(0);
+        transition-delay: .3s;
+      }
+    }
+    &:nth-child(4) {
+      & .advantages__icon {
+        transform: scale(1);
+        transition-delay: .4s;
+      }
+      & .advantages-title {
+        opacity: 1;
+        transform: translate(0);
+        transition-delay: .4s;
+      }
+    }
+    &:nth-child(5) {
+      & .advantages__icon {
+        transform: scale(1);
+        transition-delay: .5s;
+      }
+      & .advantages-title {
+        opacity: 1;
+        transform: translate(0);
+        transition-delay: .5s;
+      }
+    }
+    &:nth-child(6) {
+      & .advantages__icon {
+        transform: scale(1);
+        transition-delay: .6s;
+      }
+      & .advantages-title {
+        opacity: 1;
+        transform: translate(0);
+        transition-delay: .6s;
+      }
+    }
+  }
+}
+
+.advantages__icon {
+  transform: scale(0);
+  transition: .4s;
+}
+
+.advantages-title {
+  opacity: 0;
+  transform: translate(0,40px);
+  transition: .4s;
+}
+
+// РАЗДЕЛ SERVICES (УСЛУГИ)
+.services__cards._anim .services__card{
+  opacity: 1;
+  transform: translate(0,0);
+  &:nth-child(1) {
+    transition-delay: .1s;
+  }
+  &:nth-child(2) {
+    transition-delay: .2s;
+  }
+  &:nth-child(3) {
+    transition-delay: .3s;
+  }
+  &:nth-child(4) {
+    transition-delay: .4s;
+  }
+  &:nth-child(5) {
+    transition-delay: .5s;
+  }
+  &:nth-child(6) {
+    transition-delay: .6s;
+  }
+  &:nth-child(7) {
+    transition-delay: .7s;
+  }
+  &:nth-child(8) {
+    transition-delay: .8s;
+  }
+}
+
+.services__card {
+  opacity: 0;
+  transform: translate(0,40px);
+  transition: .4s;
+}
+
+// РАЗДЕЛ AROUND (ВОКРУГ НАС)
+.around__cards._anim .around__card {
+  opacity: 1;
+  transform: translate(0,0);
+  &:nth-child(1) {
+    transition-delay: .2s;
+  }
+  &:nth-child(2) {
+    transition-delay: .3s;
+  }
+  &:nth-child(3) {
+    transition-delay: .4s;
+  }
+}
+
+.around__card {
+  opacity: 0;
+  transform: translate(0,40px);
+  transition: .4s;
+}
+
+// РАЗДЕЛ FAQ
+.faq__acc._anim .faq__acc__item {
+  opacity: 1;
+  transform: translate(0,0);
+  &:nth-child(1) {
+    transition-delay: .2s;
+  }
+  &:nth-child(2) {
+    transition-delay: .25s;
+  }
+  &:nth-child(3) {
+    transition-delay: .3s;
+  }
+  &:nth-child(4) {
+    transition-delay: .35s;
+  }
+  &:nth-child(5) {
+    transition-delay: .4s;
+  }
+  &:nth-child(6) {
+    transition-delay: .45s;
+  }
+  &:nth-child(7) {
+    transition-delay: .5s;
+  }
+  &:nth-child(8) {
+    transition-delay: .55s;
+  }
+
+}
+
+.faq__acc__item {
+  opacity: 0;
+  transform: translate(0,50px);
+  transition: .4s;
+}
+
+// РАЗДЕЛ REVIEWS (ОТЗЫВЫ)
+.reviews__slider._anim {
+  & .slick-dots,
+  & + .estimate {
+    opacity: 1;
+    transition-delay: .8s;
+  }
+  & .reviews__card {
+    opacity: 1;
+    transform: translate(0,0);
+    &:nth-child(1) {
+      transition-delay: .2s;
+    }
+    &:nth-child(2) {
+      transition-delay: .3s;
+    }
+    &:nth-child(3) {
+      transition-delay: .4s;
+    }
+    &:nth-child(4) {
+      transition-delay: .5s;
+    }
+    &:nth-child(5) {
+      transition-delay: .6s;
+    }
+    &:nth-child(6) {
+      transition-delay: .7s;
+    }
+  }
+  & .arrows-slider {
+    transition-delay: .8s;
+    &:nth-child(1) {
+      transform: translate(-50%, -50%) scale(-1,-1);
+    }
+    &:nth-child(2) {
+      transform: translate(50%, -50%) scale(1,1);
+    }
+  }
+}
+
+.reviews__card {
+  opacity: 0;
+  transform: translate(0,30px);
+  transition: .4s;
+}
+
+.arrows-slider {
+  transition: .4s;
+  &:nth-child(1) {
+    transform: translate(-50%, -50%) scale(0);
+  }
+  &:nth-child(2) {
+    transform: translate(50%, -50%) scale(0);
+  }
+}
+
+.slick-dots,
+.estimate {
+  opacity: 0;
+  transition: .4s;
+}
+
+// РАЗДЕЛ PARTNERS (ПАРТНЕРЫ)
+.partners__content._anim {
+  & .partners__img {
+    opacity: 1;
+    transform: translate(0,0);
+    &:nth-child(1) {
+      transition-delay: .2s;
+    }
+    &:nth-child(2) {
+      transition-delay: .25s;
+    }
+    &:nth-child(3) {
+      transition-delay: .3s;
+    }
+    &:nth-child(4) {
+      transition-delay: .35s;
+    }
+    &:nth-child(5) {
+      transition-delay: .4s;
+    }
+    &:nth-child(6) {
+      transition-delay: .45s;
+    }
+    &:nth-child(7) {
+      transition-delay: .5s;
+    }
+  }
+}
+
+.partners__img {
+  opacity: 0;
+  transform: translate(0,30px);
+  transition: .4s;
+}
+
+// РАЗДЕЛ AWARDS (НАГРАДЫ)
+.awards__list._anim {
+  & .awards__img {
+    opacity: 1;
+    transform: translate(0,0);
+    &:nth-child(1) {
+      transition-delay: .2s;
+    }
+    &:nth-child(2) {
+      transition-delay: .25s;
+    }
+    &:nth-child(3) {
+      transition-delay: .3s;
+    }
+    &:nth-child(4) {
+      transition-delay: .35s;
+    }
+    &:nth-child(5) {
+      transition-delay: .4s;
+    }
+  }
+}
+
+.awards__img {
+  opacity: 0;
+  transform: translate(0,30px);
+  transition: .4s;
+}
+
+

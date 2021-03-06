@@ -26,39 +26,14 @@
   pointer-events: none;
 }
 
-.sbanner__people-image {
-  animation: sbannerPeople 2s ease-in infinite alternate;
-}
-
-@keyframes sbannerPeople {
-  from {
-    transform: translate(0,0);
-  } to {
-    transform: translate(0,-20px);
-  }
-}
-
 .sbanner__people-shadow {
   position: absolute;
   bottom: -15px;
   left: 50%;
-  width: 250px;
+  width: 200px;
   height: 15px;
   transform: translate(-50%,0);
   background: radial-gradient(50% 50% at 50% 50%, rgba(33, 33, 33, 0.55) 0%, rgba(33, 33, 33, 0) 100%);
-  animation: sbannerShadow 2s ease-in infinite alternate;
-}
-
-@keyframes sbannerShadow {
-  from {
-    opacity: 1;
-    width: 200px;
-    height: 15px;
-  } to {
-    opacity: .5;
-    width: 280px;
-    height: 18px;
-  }
 }
 
 .sbanner__info {
@@ -70,6 +45,8 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
+  &._anim {
+  }
 }
 
 .sbanner-title {
