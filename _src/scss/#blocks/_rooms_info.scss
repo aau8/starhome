@@ -294,6 +294,32 @@
     }
   }
 }
+
+.rooms__breakfast {
+  width: 100%;
+  margin: 16px 0 0 0;
+  background: rgba(34, 146, 248, 0.1);
+}
+
+.rooms__breakfast__body {
+  display: flex;
+  align-items: center;
+  padding: 16px 24px;
+}
+
+.rooms__breakfast-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 8px 0 0;
+}
+
+.rooms__breakfast-text {
+  font-size: 14px;
+  font-weight: 500;
+  color: #2292F8;
+}
+
 .rooms__info__booking {
   display: flex;
   justify-content: flex-end;

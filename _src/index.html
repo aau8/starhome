@@ -14,7 +14,7 @@
   <!-- <style>
     .preloader{position:fixed;top:0;left:0;width:100%;height:100%;z-index:1000000}.preloader._hide{pointer-events:none}.preloader._hide .preloader-layer1{-webkit-transform:translate(-100%,0);-ms-transform:translate(-100%,0);transform:translate(-100%,0);-webkit-transition:.3s ease-in;-o-transition:.3s ease-in;transition:.3s ease-in}.preloader._hide .preloader-layer2{-webkit-transform:translate(-100%,0);-ms-transform:translate(-100%,0);transform:translate(-100%,0);-webkit-transition:.2s ease-in;-o-transition:.2s ease-in;transition:.2s ease-in;-webkit-transition-duration:.5s;-o-transition-duration:.5s;transition-duration:.5s}.preloader._hide .preloader__icon{opacity:0;-webkit-transition:.3s;-o-transition:.3s;transition:.3s;pointer-events:none}.preloader-layer1{position:absolute;top:0;left:0;width:100%;height:100%;background-color:#fff;z-index:2}.preloader-layer2{position:absolute;top:0;left:0;width:100%;height:100%;background-color:var(--accentcolor);z-index:1}.preloader__icon{position:absolute;top:50%;left:50%;-webkit-transform:translate(-50%,-50%);-ms-transform:translate(-50%,-50%);transform:translate(-50%,-50%);z-index:3}.preloader__icon svg{width:140px;height:140px}#preloader_star{width:130px;height:130px;-webkit-animation:preloaderStar linear 3.5s;animation:preloaderStar linear 3.5s;-webkit-transform-origin:50% 50%;-ms-transform-origin:50% 50%;transform-origin:50% 50%;-webkit-animation-iteration-count:infinite;animation-iteration-count:infinite}@-webkit-keyframes preloaderStar{0%{-webkit-transform:rotate(0);transform:rotate(0)}50%{-webkit-transform:rotate(180deg);transform:rotate(180deg)}100%{-webkit-transform:rotate(360deg);transform:rotate(360deg)}}@keyframes preloaderStar{0%{-webkit-transform:rotate(0);transform:rotate(0)}50%{-webkit-transform:rotate(180deg);transform:rotate(180deg)}100%{-webkit-transform:rotate(360deg);transform:rotate(360deg)}}#preloader_home{-webkit-animation:preloaderHome ease-in .9s;animation:preloaderHome ease-in .9s;-webkit-transform-origin:50% 50%;-ms-transform-origin:50% 50%;transform-origin:50% 50%;-webkit-animation-iteration-count:infinite;animation-iteration-count:infinite}@-webkit-keyframes preloaderHome{0%{-webkit-transform:scale(1);transform:scale(1)}50%{-webkit-transform:scale(.9);transform:scale(.9)}100%{-webkit-transform:scale(1);transform:scale(1)}}@keyframes preloaderHome{0%{-webkit-transform:scale(1);transform:scale(1)}50%{-webkit-transform:scale(.9);transform:scale(.9)}100%{-webkit-transform:scale(1);transform:scale(1)}}
   </style> -->
-  <link rel="stylesheet" href="css/style.min.css">
+  <link rel="stylesheet" href="css/style.css">
   <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
   <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
   <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
@@ -494,7 +494,7 @@
                     <div class="rooms__card-line"></div>
                     <p class="rooms__card-description">Уютная, небольшая комната с широкой двухъярусной кроватью и всем необходимым для комфортного проживания. Комната так же подойдет для семьи из трех человек.</p>
                   </div>
-                  <a href='#room=standart' class="rooms__card-button btn-main" data-info="standart">Подробнее</a>
+                  <a class="rooms__card-button btn-main" data-info="standart">Подробнее</a>
                 </div>
               </li>
               <li class="rooms__card card__room room-men">
@@ -507,7 +507,7 @@
                     <div class="rooms__card-line"></div>
                     <p class="rooms__card-description">Уютная, небольшая комната с широкой двухъярусной кроватью и всем необходимым для комфортного проживания. Комната так же подойдет для семьи из трех человек.</p>
                   </div>
-                  <a href='#room=men' class="rooms__card-button btn-main" data-info="men">Подробнее</a>
+                  <a class="rooms__card-button btn-main" data-info="men">Подробнее</a>
                 </div>
               </li>
               <li class="rooms__card card__room room-women">
@@ -606,7 +606,7 @@
             </ul>
             <div class="rooms__info">
               <div class="rooms__info__cards">
-                <div class="rooms__info__card rooms__info__card-standart" id="room=standart" data-url="rooms=standart">
+                <div class="rooms__info__card rooms__info__card-standart" id="room-standart">
                   <div class="rooms__info__card__body">
                     <a href="javascript:void(0)" class="rooms__info-close">
                       <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -781,6 +781,16 @@
                             </li>
                           </ul>
                         </div>
+                      </div>
+                    </div>
+                    <div class="rooms__breakfast">
+                      <div class="rooms__breakfast__body">
+                        <div class="rooms__breakfast-icon">
+                          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M10.0003 1.6665C5.40533 1.6665 1.66699 5.40484 1.66699 9.99984C1.66699 14.5948 5.40533 18.3332 10.0003 18.3332C14.5953 18.3332 18.3337 14.5948 18.3337 9.99984C18.3337 5.40484 14.5953 1.6665 10.0003 1.6665ZM10.8337 14.1665H9.16699V9.1665H10.8337V14.1665ZM10.8337 7.49984H9.16699V5.83317H10.8337V7.49984Z" fill="#2292F8"/>
+                          </svg>
+                        </div>
+                        <p class="rooms__breakfast-text">Вы можете включить в стоимость проживания завтрак</p>
                       </div>
                     </div>
                     <div class="rooms__info__booking">
@@ -4851,7 +4861,7 @@
               </span>
             </a>
             <div class="rs-onload rs-onload-load">
-              <span class="rs-onload-text">Загрузка</span>
+              <!-- <span class="rs-onload-text">Загрузка</span> -->
               <span class="rs-onload-icon">
                 <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M32 16C32 13.1914 31.2607 10.4323 29.8564 8C28.4521 5.56769 26.4323 3.54789 24 2.14359C21.5677 0.7393 18.8086 -1.22767e-07 16 0C13.1914 1.22767e-07 10.4323 0.739301 8 2.14359C5.56769 3.54789 3.54789 5.56769 2.14359 8C0.7393 10.4323 -2.45534e-07 13.1914 0 16C2.45535e-07 18.8086 0.739301 21.5677 2.14359 24C3.54789 26.4323 5.56769 28.4521 8 29.8564L10.6541 25.2593C9.02881 24.3209 7.67911 22.9712 6.74071 21.3459C5.80232 19.7205 5.3083 17.8768 5.3083 16C5.3083 14.1232 5.80232 12.2795 6.74071 10.6541C7.67911 9.0288 9.0288 7.67911 10.6541 6.74071C12.2795 5.80232 14.1232 5.3083 16 5.3083C17.8768 5.3083 19.7205 5.80232 21.3459 6.74071C22.9712 7.67911 24.3209 9.0288 25.2593 10.6541C26.1977 12.2795 26.6917 14.1232 26.6917 16H32Z" fill="#212121" fill-opacity=".5"/>
@@ -4859,7 +4869,7 @@
               </span>
             </div>
             <div class="rs-onload rs-onload-done">
-              <span class="rs-onload-text">Загружено</span>
+              <!-- <span class="rs-onload-text">Загружено</span> -->
               <span class="rs-onload-icon">
                 <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M27.3312 1.875L12.6687 21.2062L4 12.5437L0 16.5438L13.3313 29.875L32 5.875L27.3312 1.875Z" fill="#35D932"/>
@@ -4867,7 +4877,7 @@
               </span>
             </div>
             <div class="rs-onload rs-onload-error">
-              <span class="rs-onload-text">Ошибка</span>
+              <!-- <span class="rs-onload-text">Ошибка</span> -->
               <span class="rs-onload-icon">
                 <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M21.3137 9.99988L10 21.3136M10 9.99988L21.3137 21.3136" stroke="#E61610" stroke-width="2"/>
@@ -4884,6 +4894,6 @@
       </div>
     </div>
   </div>
-  <script src="js/main.min.js"></script>
+  <script src="js/main.js"></script>
 </body>
 </html>

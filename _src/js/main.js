@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', function(){
   let closeMenu = document.querySelector('.navbar__menu-close');
   let menu = document.querySelector('.navbar__menu');
   let body = document.querySelector('body');
+  let navbarMenuBtn = document.querySelector('.navbar__menu-btn');
   let i;
 
   function menuToggle() {
@@ -30,6 +31,9 @@ document.addEventListener('DOMContentLoaded', function(){
     }
   });
 
+  navbarMenuBtn.addEventListener('click', () => {
+    menuToggle();
+  });
   // ПРИ КЛИКЕ ПО ССЫЛКАМ БУДЕТ ПЕРЕХОД ПО ЯКОРЮ И ЗАКРЫТИЕ МЕНЮ
   let navbarLink = document.querySelectorAll('.navbar-link');
 
@@ -483,6 +487,7 @@ for (let i = 0; i < btnBooking.length; i++) {
       // if(window.location.hash) {
       // }
       let roomsInfoCard = document.querySelector('#room-' + this.dataset.info);
+      console.log(this.dataset.info);
       // roomsInfo.style.pointerEvents = 'all';
       roomsInfoCard.classList.add('_show');
       body.classList.add('_lock');

@@ -295,6 +295,9 @@
     color: $main;
   }
 }
+.rooms__card-button {
+  cursor: pointer;
+}
 .rooms__card-title {
   display: flex;
   align-items: flex-end;
