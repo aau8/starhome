@@ -152,7 +152,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
 // ОТКРЫТИЕ МОДУЛЯ БРОНИРОВАНИЕ НА ОСНОВАНИИ УКАЗАННЫХ ДАТ В ФОРМЕ БРОНИРОВАНИЯ НА ГЛАВНОМ ЭКРАНЕ
 let btnOpenModuleBooking = document.querySelector('.header-buttonAvailability');
-let btnOpenModuleVisa = document.querySelector('.header-visaSupport');
+let btnOpenModuleVisa = document.querySelectorAll('.header-visaSupport');
 let langModule = 'ru';
 let rsCard = document.querySelector('.rs');
 let rsOnloadLoad = document.querySelector('.rs-onload-load');
@@ -203,11 +203,13 @@ btnOpenModuleBooking.addEventListener('click', function() {
 });
 
 // ОТКРЫТИЕ ВИЗОВОЙ ПОДДЕРЖКИ В ФРЕЙМЕ
-btnOpenModuleVisa.addEventListener('click', () => {
-  rsCard.classList.add('_show');
-  rsIframe.setAttribute('src', 'https://www.hotels-pro.ru/order/9916/lang/ru');
-  rsTitle.innerHTML = "Визовая поддержка";
-});
+for (let i = 0; i < btnOpenModuleVisa.length; i++) {
+  btnOpenModuleVisa[i].addEventListener('click', () => {
+    rsCard.classList.add('_show');
+    rsIframe.setAttribute('src', 'https://www.hotels-pro.ru/order/9916/lang/ru');
+    rsTitle.innerHTML = "Визовая поддержка";
+  });
+}
 
 // ЗАКРЫТИЕ ФРЕЙМА
 let rsClose = document.querySelector('.rs-close');
@@ -227,7 +229,9 @@ rsClose.addEventListener('click', (e) => {
 let btnBooking = document.querySelectorAll('.btn-booking');
 
 for (let i = 0; i < btnBooking.length; i++) {
-  btnBooking[i].addEventListener('click',(e) => {
+  btnBooking[i].addEventListener('click', (e) => {
+    document.querySelector('.rooms__info__card._show').classList.remove('_show');
+    body.classList.remove('_lock');
     rsCard.classList.add('_show');
     rsIframe.setAttribute('src', 'https://reservationsteps.ru/rooms/index/a7012a46-0c22-4353-92b9-f6169736cc29');
     rsTitle.innerHTML = "Бронирование";
@@ -417,53 +421,71 @@ for (let i = 0; i < btnBooking.length; i++) {
   // ЗАКРЫТИЕ КАРТОЧКИ С ИНФОРМАЦИЕЙ О КОМНАТЕ
   let closeCardRoom = document.querySelectorAll('.rooms__info-close');
   let cardRoom = document.querySelectorAll('.rooms__info__card');
-  // let bgRoom = document.querySelector('.rooms__info-bg');
-  let roomsBlock = document.querySelector('.rooms__info');
-  // let roomsInfo = document.querySelector('.rooms__info');
+  let cardRoomShow = document.querySelector('.rooms__info__card._show');
   let roomsCardButtons = document.querySelectorAll('.rooms__card-button');
 
   for (i = 0; i < closeCardRoom.length; i++) {
-    closeCardRoom[i].addEventListener('click', function() {
-      for (i = 0; i < cardRoom.length; i++) {
-        cardRoom[i].classList.remove('_show');
-      }
-      // roomsBlock.style.pointerEvents = 'none';
+    closeCardRoom[i].addEventListener('click', function(e) {
+      document.querySelector('.rooms__info__card._show').classList.remove('_show');
       body.classList.remove('_lock');
-      // bgRoom.classList.remove('_active');
-      // roomsInfo.classList.remove('_overflow_auto');
     });
+
   }
 
-  // for (i = 0; i < cardRoom.length; i++) {
+  // for (let i = 0; i < roomsCardButtons.length; i++) {
   //   document.addEventListener('click', function(e) {
+  //     let cardRoomShow = document.querySelector('.rooms__info__card._show');
   //     let target = e.target;
-  //     let itsCardRoom = target == document.querySelector('.rooms__info__card._active') || menu.contains(target);
-  //     // let itsBurger = target == ;
-  //     let menuIsActive = menu.classList.contains('_active');
-  
-  //     if (!itsCardRoom && menuIsActive) {
-  //       menuToggle();
+  //     let itsCardRoom = target == cardRoomShow || cardRoomShow.contains(target);
+  //     let itsButtons = target == roomsCardButtons[i];
+  //     let cardIsActive = cardRoomShow.classList.contains('_show');
+  //     console.log(itsButtons);
+  //     if (!itsCardRoom && !itsButtons && cardIsActive) {
+  //       cardRoomShow.classList.remove('_show');
+  //       body.classList.remove('_lock');
   //     }
   //   });
+  //   // document.addEventListener('click', function(e) {
+  //   //   let target = e.target;
+  //   //   let itsCardRoom = target == document.querySelector('.rooms__info__card._active') || menu.contains(target);
+  //   //   // let itsBurger = target == ;
+  //   //   let menuIsActive = menu.classList.contains('_active');
+  
+  //   //   if (!itsCardRoom && menuIsActive) {
+  //   //     menuToggle();
+  //   //   }
+  //   // });
+
+  // // document.addEventListener('click', function(e) {
+  // //   let target = e.target;
+  // //   let itsMenu = target == menu || menu.contains(target);
+  // //   let itsBurger = target == burger;
+  // //   let menuIsActive = menu.classList.contains('_active');
+
+  // //   if (!itsMenu && !itsBurger && menuIsActive) {
+  // //     menuToggle();
+  // //   }
+  // // });
+
   // }
 
-  openClosingElemOnBg = document.querySelectorAll('.openClosingElemOnBg');
-  for (i = 0; i < cardRoom.length; i++) {
-    for (i = 0; i < openClosingElemOnBg.length; i++) {
-    document.addEventListener('click', function(e) {
-      let target = e.target,
-          itsClosingElem = target == document.querySelector('.closingElemOnBg._show') || menu.contains(target),
-          itsopenClosingElemOnBg = target == openClosingElemOnBg[i];
+  // openClosingElemOnBg = document.querySelectorAll('.openClosingElemOnBg');
+  // for (i = 0; i < cardRoom.length; i++) {
+  //   for (i = 0; i < openClosingElemOnBg.length; i++) {
+  //   document.addEventListener('click', function(e) {
+  //     let target = e.target,
+  //         itsClosingElem = target == document.querySelector('.closingElemOnBg._show') || menu.contains(target),
+  //         itsopenClosingElemOnBg = target == openClosingElemOnBg[i];
       
-      // let itsBurger = target == ;
-      // let menuIsActive = menu.classList.contains('_active');
+  //     // let itsBurger = target == ;
+  //     // let menuIsActive = menu.classList.contains('_active');
   
-      if (!itsClosingElem && !itsopenClosingElemOnBg) {
-        document.querySelector('.closingElemOnBg._show').classList.remove('_show');
-      }
-    });
-    }
-  }
+  //     if (!itsClosingElem && !itsopenClosingElemOnBg) {
+  //       document.querySelector('.closingElemOnBg._show').classList.remove('_show');
+  //     }
+  //   });
+  //   }
+  // }
   // bgRoom.addEventListener('click', function() {
   //   for (i = 0; i < cardRoom.length; i++) {
   //     cardRoom[i].classList.remove('_active');
@@ -487,7 +509,7 @@ for (let i = 0; i < btnBooking.length; i++) {
       // if(window.location.hash) {
       // }
       let roomsInfoCard = document.querySelector('#room-' + this.dataset.info);
-      console.log(this.dataset.info);
+      // console.log(this.dataset.info);
       // roomsInfo.style.pointerEvents = 'all';
       roomsInfoCard.classList.add('_show');
       body.classList.add('_lock');
@@ -551,6 +573,9 @@ for (let i = 0; i < btnBooking.length; i++) {
     if (pageYOffset <= windowHeight ) {
       document.querySelector('.arrowUp').classList.remove('_show');
     }
+    if (pageYOffset >= (document.querySelector('.footer').offsetTop - 500) ) {
+      document.querySelector('.arrowUp').classList.remove('_show');
+    }
   });
 
   // ФИКСИРОВАНИЕ NAVBAR ПРИ СКРОЛЛЕ НА ВЫСОТУ ЭКРАНА
@@ -609,4 +634,124 @@ for (let i = 0; i < btnBooking.length; i++) {
   animOnScroll();
   // АВТОМАТИЧЕСКОЕ ПРОСТАВЛЕНИЕ НОВОГО ГОДА В ФУТЕРЕ
   document.querySelector('#copyrightNowYear').textContent = yearIn;
+  
+  // ОТПРАВКА ЗАЯВКИ НА ОБРАТНЫЙ ЗВОНОК
+  const formCallback = document.querySelector('#formSendEmail');
+
+  formCallback.addEventListener('submit', formSend);
+  
+  async function formSend(e) {
+    e.preventDefault();
+  
+    const formData = new FormData(formCallback);
+  
+    const response = await fetch('mail.php', {
+      method: 'POST',
+      body: formData
+    });
+    if (response.ok) {
+      formCallback.reset();
+      callbackToggle();
+      const successful = document.querySelector('.response-successful');
+      successful.classList.add('_show');
+      setTimeout(() => {
+        successful.classList.remove('_show');
+      }, 3000);
+    } else {
+      formCallback.reset();
+      callbackToggle();
+      const error = document.querySelector('.response-error');
+      error.classList.add('_show');
+      setTimeout(() => {
+        error.classList.remove('_show');
+      }, 3000);
+    }
+  }
+  
+  // ОТПРАВКА ЗАЯВКИ НА ГРУППОВОЕ БРОНИРОВАНИЕ
+  const formApplicationGroup = document.querySelector('#formSendEmailGroup');
+
+  formApplicationGroup.addEventListener('submit', formSendGroup);
+  
+  async function formSendGroup(e) {
+    e.preventDefault();
+  
+    // let error = formValidate(formApplicationGroup);
+
+    const formData = new FormData(formApplicationGroup);
+  
+    const response = await fetch('group_booking.php', {
+      method: 'POST',
+      body: formData
+    });
+    if (response.ok) {
+      formApplicationGroup.reset();
+      const successful = document.querySelector('.response-successful');
+      successful.classList.add('_show');
+      setTimeout(() => {
+        successful.classList.remove('_show');
+      }, 3000);
+    } else {
+      formApplicationGroup.reset();
+      const error = document.querySelector('.response-error');
+      error.classList.add('_show');
+      setTimeout(() => {
+        error.classList.remove('_show');
+      }, 3000);
+    }
+  }
+  
+  // function formValidate(form) {
+  //   // let error = 0;
+  //   let formReq = document.querySelectorAll('._req');
+  //   console.log(formReq);
+  //   for (let i = 0; i < formReq.length; i++) {
+  //     const input = formReq[i];
+  //     formRemoveError(input);
+
+  //     if (input.classList.contains('_email')) {
+  //       if (emailTest(input)) {
+  //         formAddError(input);
+  //         // error++;
+  //       }
+  //     } else if (input.getAttribute('type') === 'checkbox' && input.checked === false) {
+  //       formAddError(input);
+  //       // error++;
+  //     } else {
+  //       if (input.value === '') {
+  //         formAddError(input);
+  //         // error++;
+  //       }
+  //     }
+  //   }
+  // }
+  
+  // function formAddError(input) {
+  //   // input.parentElement.classList.add('_error');
+  //   input.classList.add('_error');
+  // }
+  
+  // function formRemoveError(input) {
+  //   // input.parentElement.classList.remove('_error');
+  //   input.classList.remove('_error');
+  // }
+  
+  // function emailTest(input) {
+  //   return !/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,8})+$/.test(input.value);
+  // }
+
+  // ТОЛЬКО ЦИФРЫ В ИНПУТАХ С АТРИБУТОМ TYPE="TEL"
+  
+  const inputTypeTel = document.querySelectorAll('input[type="tel"]');
+
+  for (let i = 0; i < inputTypeTel.length; i++) {
+    inputTypeTel[i].addEventListener('keypress', function(e) {
+    const inputValue = e.charCode;
+      console.log('ok');
+    if(!(inputValue >= 48 && inputValue <= 57) && (inputValue != 43 && inputValue != 0 && inputValue != 40 && inputValue != 41 && inputValue != 45)) {
+      e.preventDefault();
+    }
+  });
+  }
+
 });

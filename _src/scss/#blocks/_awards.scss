@@ -9,10 +9,6 @@
     align-items: center;
   }
 }
-.section-title {
-}
-.awards-title {
-}
 .awards__content {
   width: 100%;
   display: flex;
@@ -22,8 +18,7 @@
 .awards__list {
   width: 100%;
   display: flex;
-  // justify-content: space-between;
-  // align-items: center;
+  justify-content: space-between;
   flex-wrap: wrap;
   @media screen and (max-width: 1180px) {
     max-width: 800px; 
@@ -38,16 +33,16 @@
 }
 .awards__img {
   display: block;
-  width: 220px;
-  height: 220px;
+  width: 180px;
+  height: 180px;
   margin: 0 10px 0 0;
   &:last-child {
     margin: 0;
   }
   & a {
     display: block;
-    width: 220px;
-    height: 220px;
+    width: 180px;
+    height: 180px;
   }
   & img {
     width: 100%;

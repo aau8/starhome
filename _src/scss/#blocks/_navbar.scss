@@ -49,10 +49,47 @@
   &__address {
     display: flex;
     align-items: center;
+    position: relative;
   }
   &__address address{
     font-style: normal;
     margin: 0 0 0 4px;
+    position: relative;
+    &:before {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      border-top: 1px dashed rgba(23,23,23,.4);
+      @media screen and (max-width: 1119px) {
+        display: none;
+      }
+    }
+    & em {
+      opacity: .6;
+    }
+    & + .navbar__booking_rating_tooltip {
+      bottom: -5px;
+      width: 260px;
+      transform: translate(-50%,90%);
+      user-select: none;
+    }
+    &:hover + .navbar__booking_rating_tooltip {
+      opacity: 1;
+      pointer-events: all;
+      transform: translate(-50%,100%);
+      // animation: navbarBookinRatingTooltipShow .15s linear;
+      // animation-fill-mode: forwards;
+      // @keyframes navbarBookinRatingTooltipShow {
+      //   from {
+      //     transform: translate(0%,100%);
+      //   } to {
+      //     transform: translate(0%,10%);
+      //   }
+      // }
+    }
   }
   &__work_time {
     display: flex;
@@ -131,6 +168,7 @@
     }
     &-text {
       font-weight: 500;
+      color: $main;
     }
     @media screen and (max-width: 1119px) {
       margin: 0;
