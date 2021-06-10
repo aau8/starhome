@@ -1,2 +1,2 @@
 # starhome
-Сайт хостела starhomehostel.ru
+Сайт хостела https://starhomehostel.ru
